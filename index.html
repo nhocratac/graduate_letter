@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bảng điều khiển thiệp mời · Lễ Tốt Nghiệp</title>
+  <meta name="description" content="Danh sách thiệp mời tốt nghiệp — chọn khách để mở & sao chép liên kết." />
+  <meta name="theme-color" content="#05070f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Be+Vietnam+Pro:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/index.css" />
+</head>
+<body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <main class="hub">
+    <header class="hub-head">
+      <p class="mono accent">// MISSION CONTROL · <span id="classOf">CLASS OF 2026</span></p>
+      <h1>Thiệp Mời <span class="grad">Tốt Nghiệp</span></h1>
+      <p class="sub">
+        <strong id="hostName">Nguyễn Việt Thắng</strong> · Lớp <span id="className">CNTT</span>
+      </p>
+      <p class="hub-note mono">
+        Chọn một khách để xem thiệp, hoặc sao chép liên kết riêng để gửi cho họ.
+        <b id="count">0</b> thiệp.
+      </p>
+    </header>
+
+    <section class="grid" id="grid"><!-- JS render --></section>
+
+    <footer class="hub-foot mono">
+      <span>NGUYỄN VIỆT THẮNG · 11.06.2026 · UIT</span>
+      <span class="dim">trang này chỉ dành cho bạn — khách chỉ thấy thiệp của riêng họ</span>
+    </footer>
+  </main>
+
+  <!-- toast copy -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="assets/js/index.js"></script>
+</body>
+</html>

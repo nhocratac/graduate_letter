@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Thiệp mời tốt nghiệp</title>
+  <meta name="description" content="Thiệp mời dự Lễ Tốt Nghiệp — chủ đề vũ trụ & công nghệ." />
+  <meta name="theme-color" content="#05070f" />
+
+  <!-- Fonts: Unbounded (display) · Be Vietnam Pro (body) · JetBrains Mono (HUD) — đều hỗ trợ tiếng Việt -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Be+Vietnam+Pro:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/card.css" />
+</head>
+<body>
+  <!-- nền 3D -->
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <!-- màn hình KHÔNG TÌM THẤY -->
+  <section id="notFound" class="not-found-screen" hidden>
+    <div class="nf-code">404 · SIGNAL LOST</div>
+    <h1>Không tìm thấy thiệp này</h1>
+    <p>Đường dẫn có thể bị thiếu mã khách mời. Vui lòng kiểm tra lại liên kết bạn nhận được.</p>
+  </section>
+
+  <!-- THIỆP -->
+  <main id="stage" class="stage">
+    <article id="ticket" class="ticket">
+
+      <!-- viền HUD góc -->
+      <span class="corner tl"></span><span class="corner tr"></span>
+      <span class="corner bl"></span><span class="corner br"></span>
+
+      <!-- thanh trên: nhãn HUD -->
+      <header class="ticket-head">
+        <span class="tag" id="hudTag">STELLAR PASS</span>
+        <span class="mono dim">NO. <b id="designator">GR-0000</b></span>
+      </header>
+
+      <!-- người nhận -->
+      <section class="recipient reveal" style="--i:1">
+        <div class="avatar-ring">
+          <div class="avatar" id="avatar"></div>
+          <span class="ring-tick"></span>
+        </div>
+        <div class="recipient-text">
+          <span class="mono accent">// <span id="greeting">Trân trọng kính mời</span></span>
+          <h2 id="guestName">Khách mời</h2>
+          <span class="mono dim">SECTOR <span id="paletteName">—</span></span>
+        </div>
+      </section>
+
+      <!-- tiêu đề sự kiện -->
+      <section class="event-title reveal" style="--i:2">
+        <p class="kicker mono"><span id="classOf">CLASS OF 2026</span> · <span id="className">CNTT</span></p>
+        <h1><span class="ev" id="occasion">Lễ Tốt Nghiệp</span></h1>
+        <p class="host">của <strong id="hostName">Nguyễn Việt Thắng</strong></p>
+      </section>
+
+      <!-- lời nhắn -->
+      <section class="message reveal" style="--i:3">
+        <p id="message">…</p>
+        <p class="presence" id="presence">…</p>
+      </section>
+
+      <!-- chi tiết -->
+      <section class="details reveal" style="--i:4">
+        <div class="detail">
+          <span class="d-ico">🗓️</span>
+          <div><b id="dateVal">—</b><small id="dayVal">—</small></div>
+        </div>
+        <div class="detail">
+          <span class="d-ico">⏰</span>
+          <div><b id="timeVal">—</b><small>Giờ Việt Nam</small></div>
+        </div>
+        <div class="detail wide">
+          <span class="d-ico">📍</span>
+          <div><b id="venueVal">—</b><small id="addressVal">—</small></div>
+        </div>
+        <div class="detail">
+          <span class="d-ico zsym" id="zodiacSym">★</span>
+          <div><b id="zodiacName">—</b><small>chòm sao của bạn</small></div>
+        </div>
+        <div class="detail">
+          <span class="d-ico">🛰️</span>
+          <div><b id="coords">—</b><small>toạ độ điểm đến</small></div>
+        </div>
+      </section>
+
+      <!-- countdown -->
+      <section class="countdown-wrap reveal" style="--i:5">
+        <span class="mono dim cd-label">ĐẾM NGƯỢC TỚI GIỜ G</span>
+        <div class="countdown" id="countdown">
+          <div class="cd"><b id="cdD">00</b><small>ngày</small></div>
+          <div class="cd"><b id="cdH">00</b><small>giờ</small></div>
+          <div class="cd"><b id="cdM">00</b><small>phút</small></div>
+          <div class="cd"><b id="cdS">00</b><small>giây</small></div>
+        </div>
+        <div class="cd-done" id="cdDone" hidden>🎓 Ngày trọng đại đã đến!</div>
+      </section>
+
+      <!-- hành động -->
+      <footer class="actions reveal" style="--i:6">
+        <a class="btn primary" id="calLink" target="_blank" rel="noopener">＋ Thêm vào lịch</a>
+        <a class="btn ghost" id="mapLink" target="_blank" rel="noopener">🧭 Xem bản đồ</a>
+        <button class="btn ghost" id="pulseBtn" type="button">✦ Kích hoạt hành tinh</button>
+      </footer>
+
+      <p class="hint mono">kéo / di chuột để khám phá vũ trụ — chạm vào nền để tạo sao băng</p>
+    </article>
+  </main>
+
+  <script type="module" src="assets/js/card.js"></script>
+</body>
+</html>
