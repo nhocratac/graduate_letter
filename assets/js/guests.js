@@ -78,4 +78,13 @@ export const GUESTS = [
       "Nàng thơ của Chuyến Xe Công Nghệ — cô em gái nhỏ của anh. Mời em đến dự lễ tốt " +
       "nghiệp của anh nhé! Có sự góp mặt của em thì ngày vui của anh mới thật trọn vẹn.",
   },
+  {
+    id: "long-phan",
+    name: "Long Phan",
+    title: "Em",
+    photo: "assets/img/long-phan.png",
+    message:
+      "Thằng em “shiba” của anh! Mời em đến dự lễ tốt nghiệp của anh nhé. " +
+      "Có mặt đầy đủ để anh em mình lại có thêm một kỷ niệm đáng nhớ.",
+  },
 ];
