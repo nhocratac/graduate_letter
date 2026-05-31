@@ -28,6 +28,13 @@
     <p>Đường dẫn có thể bị thiếu mã khách mời. Vui lòng kiểm tra lại liên kết bạn nhận được.</p>
   </section>
 
+  <!-- nút bỏ qua + thanh tiến độ (chỉ hiện khi có hành trình) -->
+  <a class="skip-journey" id="skipJourney" href="#stage" hidden>Bỏ qua →</a>
+  <div class="progress-rail" id="progressRail" hidden><i></i></div>
+
+  <!-- HÀNH TRÌNH CUỘN (JS dựng động từ guest.journey) -->
+  <div id="journey" class="journey"></div>
+
   <!-- THIỆP -->
   <main id="stage" class="stage">
     <article id="ticket" class="ticket">

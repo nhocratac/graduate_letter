@@ -205,6 +205,100 @@ body.ready .reveal {
 body.ready .ticket { animation: cardIn .9s cubic-bezier(.2,.7,.2,1) both; }
 @keyframes cardIn { from { opacity: 0; transform: translateY(30px) scale(.97); } to { opacity: 1; } }
 
+/* ============================================================
+   HÀNH TRÌNH CUỘN KỂ CHUYỆN (journey)
+   ============================================================ */
+html.has-journey { scroll-snap-type: y proximity; }
+/* KHÔNG snap tấm thiệp: nó cao hơn màn hình, snap sẽ kéo giật ngược về beat trước.
+   Chỉ các .beat-screen mới là điểm snap. */
+
+.journey { position: relative; z-index: 2; }
+.beat-screen {
+  min-height: 100dvh; scroll-snap-align: start;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; padding: 10vh clamp(20px, 7vw, 80px);
+  position: relative;
+}
+.beat {
+  opacity: 0; transform: translateY(42px);
+  transition: opacity 1s ease, transform 1s cubic-bezier(.2,.7,.2,1);
+  max-width: 760px;
+}
+.beat.in { opacity: 1; transform: none; }
+
+.b-kicker {
+  font-family: var(--mono); letter-spacing: 0.25em; text-transform: uppercase;
+  font-size: 0.72rem; color: var(--accent); margin-bottom: 18px;
+}
+.b-name {
+  font-family: var(--display); font-weight: 800; line-height: 1.06;
+  font-size: clamp(2.1rem, 8vw, 4rem); letter-spacing: -0.01em;
+}
+.b-sub { color: var(--ink-dim); font-size: 0.98rem; max-width: 32ch; margin: 18px auto 0; line-height: 1.6; }
+.b-big {
+  font-family: var(--display); font-weight: 800;
+  font-size: clamp(3rem, 17vw, 9rem); line-height: 0.9;
+}
+.b-lead {
+  font-size: clamp(1.1rem, 3.4vw, 1.5rem); color: #e6eeff;
+  max-width: 26ch; margin: 22px auto 0; font-weight: 300; line-height: 1.55;
+}
+.b-statement {
+  font-family: var(--display); font-weight: 800; line-height: 1.12;
+  font-size: clamp(1.8rem, 7vw, 3.4rem);
+}
+.b-line {
+  display: block; opacity: 0; transform: translateY(20px);
+  transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1);
+  transition-delay: calc(var(--l) * 0.18s);
+}
+.beat.in .b-line { opacity: 1; transform: none; }
+.grad {
+  background: linear-gradient(120deg, var(--glow), var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+.scrollhint {
+  position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%);
+  font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--ink-dim);
+  animation: bob 1.8s ease-in-out infinite;
+}
+@keyframes bob {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: .5; }
+  50% { transform: translateX(-50%) translateY(7px); opacity: 1; }
+}
+
+.skip-journey {
+  position: fixed; top: 16px; right: 16px; z-index: 6;
+  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ink-dim); text-decoration: none;
+  background: rgba(5,7,15,0.6); border: 1px solid var(--panel-line);
+  padding: 7px 13px; border-radius: 999px;
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  transition: color .2s, border-color .2s;
+}
+.skip-journey:hover { color: var(--accent); border-color: var(--accent); }
+
+.progress-rail {
+  position: fixed; top: 50%; right: 10px; transform: translateY(-50%);
+  width: 3px; height: 120px; background: rgba(255,255,255,0.08);
+  border-radius: 999px; z-index: 6; overflow: hidden;
+}
+.progress-rail i {
+  display: block; width: 100%; height: 0%;
+  background: linear-gradient(var(--accent), var(--accent-2));
+  box-shadow: 0 0 10px var(--accent);
+  transition: height .15s linear;
+}
+@media (max-width: 480px) { .progress-rail { display: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html.has-journey { scroll-snap-type: none; }
+  .beat, .b-line { transition: none; }
+  .scrollhint { animation: none; }
+}
+
 /* ---------- màn hình 404 ---------- */
 /* đảm bảo thuộc tính [hidden] luôn ẩn (display:grid/flex bên dưới sẽ đè mất nếu không có dòng này) */
 [hidden] { display: none !important; }

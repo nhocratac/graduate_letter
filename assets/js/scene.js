@@ -324,6 +324,9 @@ export function createScene(canvas, opts) {
   }
   window.addEventListener("resize", onResize);
 
+  // ---- tiến độ cuộn (0 = đầu hành trình, 1 = tới tấm thiệp) ----
+  let scrollP = 0, scrollCur = 0;
+
   // ---- vòng lặp ----
   let raf = 0, last = performance.now(), elapsed = 0, shooterTimer = 0, running = true;
   function loop(now) {
@@ -334,8 +337,11 @@ export function createScene(canvas, opts) {
     // parallax mượt
     cur.x += (target.x - cur.x) * 0.05;
     cur.y += (target.y - cur.y) * 0.05;
+    // dolly mượt theo tiến độ cuộn: càng gần thiệp, càng tiến lại gần hành tinh
+    scrollCur += (scrollP - scrollCur) * 0.06;
     camera.position.x = cur.x * 2.2;
     camera.position.y = -cur.y * 1.6;
+    camera.position.z = 8.5 - scrollCur * 2.6;
     camera.lookAt(0, 0.2, 0);
 
     planet.rotation.y += dt * 0.12;
@@ -396,6 +402,10 @@ export function createScene(canvas, opts) {
       })();
       for (let i = 0; i < 3; i++) spawnShooter();
     },
+    // bắn 1 vệt sao băng (dùng khi cuộn qua mỗi chặng hành trình)
+    shootStar() { spawnShooter(); },
+    // cập nhật tiến độ cuộn 0..1 (card.js gọi khi scroll)
+    setScrollProgress(p) { scrollP = Math.max(0, Math.min(1, p)); },
     dispose() {
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", onResize);

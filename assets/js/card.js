@@ -5,6 +5,7 @@ import { EVENT, EVENT_START, EVENT_END } from "./event-data.js";
 import { GUESTS } from "./guests.js";
 import { derive, initials } from "./style-engine.js";
 import { createScene } from "./scene.js";
+import { buildJourney } from "./journey.js";
 
 const $ = (sel) => document.querySelector(sel);
 
@@ -88,6 +89,26 @@ function renderCard(g) {
   if (scene) {
     $("#bg").addEventListener("click", () => scene.pulsePlanet());
     $("#pulseBtn")?.addEventListener("click", () => scene.pulsePlanet());
+  }
+
+  // --- hành trình cuộn kể chuyện (nếu khách có guest.journey) ---
+  const { count } = buildJourney($("#journey"), g, {
+    onBeatEnter: () => scene?.shootStar(),
+  });
+  if (count > 0) {
+    document.documentElement.classList.add("has-journey");
+    document.body.classList.add("has-journey");
+    $("#skipJourney").hidden = false;
+    $("#progressRail").hidden = false;
+    const railFill = $("#progressRail").querySelector("i");
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+      railFill.style.height = p * 100 + "%";
+      scene?.setScrollProgress(p);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
   }
 
   // --- tilt nhẹ tấm thiệp theo chuột (desktop) ---
