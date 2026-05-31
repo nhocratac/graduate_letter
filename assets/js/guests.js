@@ -147,7 +147,7 @@ export const GUESTS = [
       "Không sao nếu em bận — nhưng anh sẽ rất vui nếu có em ở đó. Chúc em ngủ ngon nhé.",
     journey: [
       { type: "intro", kicker: "Một lời mời rất khẽ gửi" },
-      { type: "statement", kicker: "Thật lòng mà nói", lines: ["Mình quen nhau chưa lâu.", "Nhưng anh rất mong em đến."] },
+      { type: "statement", kicker: "Thật lòng mà nói", lines: ["Mình quen biết chưa lâu.", "Nhưng anh rất mong em đến."] },
       { type: "memory", kicker: "Nàng thơ xinh đẹp ơi", text: "Anh sẽ chọn một lúc vắng khách để mời em — tại anh sợ em ngại. Em sẽ dành chút thời gian ghé qua chúc mừng anh chứ?" },
       { type: "memory", kicker: "Dù em đến hay không", text: "Không sao nếu em bận. Nhưng anh sẽ rất vui nếu có em ở đó. Chúc em ngủ ngon nhé." },
     ],
