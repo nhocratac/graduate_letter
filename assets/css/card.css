@@ -206,6 +206,8 @@ body.ready .ticket { animation: cardIn .9s cubic-bezier(.2,.7,.2,1) both; }
 @keyframes cardIn { from { opacity: 0; transform: translateY(30px) scale(.97); } to { opacity: 1; } }
 
 /* ---------- màn hình 404 ---------- */
+/* đảm bảo thuộc tính [hidden] luôn ẩn (display:grid/flex bên dưới sẽ đè mất nếu không có dòng này) */
+[hidden] { display: none !important; }
 .not-found-screen {
   position: relative; z-index: 2; min-height: 100dvh;
   display: grid; place-content: center; text-align: center;
