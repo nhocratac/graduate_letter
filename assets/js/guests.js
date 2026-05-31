@@ -20,35 +20,16 @@
 // ============================================================================
 export const GUESTS = [
   {
-    id: "minh-an",
-    name: "Minh An",
-    title: "Người bạn thân",
-    photo: null,
-    message: "An ơi, chặng đường vừa qua có cậu đồng hành thật may mắn. " +
-             "Ngày tớ tốt nghiệp nhất định phải có cậu nhé!",
-  },
-  {
-    id: "thuy-linh",
-    name: "Thuỳ Linh",
-    photo: null,
-  },
-  {
-    id: "gia-bao",
-    name: "Gia Bảo",
+    id: "phi-long",
+    name: "Lê Phi Long",
     title: "Anh",
-    photo: null,
-    zodiac: "leo",
-  },
-  {
-    id: "ngoc-han",
-    name: "Ngọc Hân",
-    photo: null,
-    palette: 4,
-  },
-  {
-    id: "quang-huy",
-    name: "Quang Huy",
-    photo: null,
-    message: "Cảm ơn ông vì những đêm code cùng nhau. Hẹn gặp ở lễ tốt nghiệp!",
+    photo: "assets/img/phi-long.png",
+    message:
+      "Mới đó mà đã gần 3 năm kể từ hôm ăn bún ốc giữa trời mưa tầm tã. " +
+      "Với em, anh vừa là người thầy, người anh, cũng là người bạn suốt những năm " +
+      "đại học — kể từ ngày em bước vào CLB Lý luận trẻ. Anh đã chỉ dạy và chia sẻ " +
+      "cho em rất nhiều, không chỉ về công nghệ mà còn là những châm ngôn sống. " +
+      "Những buổi chơi game, những buổi học tiếng Anh, những lời động viên… cứ thế " +
+      "khắc ghi trong ký ức của em. Em trân trọng mời anh đến dự lễ tốt nghiệp của em.",
   },
 ];
