@@ -152,4 +152,22 @@ export const GUESTS = [
       { type: "memory", kicker: "Dù em đến hay không", text: "Không sao nếu em bận. Nhưng anh sẽ rất vui nếu có em ở đó. Chúc em ngủ ngon nhé." },
     ],
   },
+  {
+    id: "giang-le",
+    name: "Giang Lê",
+    title: "Bạn",
+    photo: "assets/img/giang-le.png",
+    message:
+      "Người bạn thân nhất tuổi học trò. Tụi mình từng vô tình cùng đi trễ rồi ngồi chung với nhau — " +
+      "những cuộc nói chuyện đầu tiên đã gắn kết hai đứa. Những trận banh, những lần 'gian lận'… " +
+      "đều là kỷ niệm của một thời học trò. Giờ không còn học chung trường nhưng tụi mình vẫn là " +
+      "những người bạn tốt của nhau. Nay đã đến lúc mình tốt nghiệp hành trình đại học rồi — " +
+      "mời bạn dành chút thời gian quý giá đến dự lễ của một Manucian nhé!",
+    journey: [
+      { type: "intro", kicker: "Một lời mời dành riêng cho" },
+      { type: "statement", kicker: "Tuổi học trò", lines: ["Người bạn thân nhất.", "Của một thời."] },
+      { type: "memory", kicker: "Lần đầu gặp nhau", text: "Vô tình cùng đi trễ, ngồi chung — rồi những cuộc nói chuyện đầu tiên đã gắn kết hai đứa." },
+      { type: "memory", kicker: "Một thời để nhớ", text: "Những trận banh, những lần 'gian lận'… Giờ không còn học chung trường, nhưng tụi mình vẫn là bạn tốt của nhau." },
+    ],
+  },
 ];
