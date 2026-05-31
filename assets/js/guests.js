@@ -58,4 +58,15 @@ export const GUESTS = [
       "trong trường. Cảm ơn Trang vì đã đồng hành cùng mình suốt những năm tháng tại UIT. " +
       "Mình trân trọng mời Trang đến dự lễ tốt nghiệp.",
   },
+  {
+    id: "mhx2025",
+    name: "MHX2025 · Chuyến Xe Công Nghệ",
+    title: "Tập thể",
+    photo: "assets/img/mhx2025.jpeg",
+    message:
+      "Mùa Hè Xanh duy nhất mà mình tham gia — và cũng là một mùa hè không thể nào quên. " +
+      "Sự hiện diện của các em, các bạn chính là niềm vui lớn của anh trong suốt chiến dịch. " +
+      "Cảm ơn cả tập thể MHX2025 – Chuyến Xe Công Nghệ vì những ngày tháng ý nghĩa ấy. " +
+      "Rất mong được gặp lại mọi người trong buổi lễ tốt nghiệp của mình.",
+  },
 ];
