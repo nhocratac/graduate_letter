@@ -149,6 +149,11 @@
 .detail div { display: flex; flex-direction: column; min-width: 0; }
 .detail b { font-weight: 600; font-size: 0.98rem; }
 .detail small { color: var(--ink-dim); font-size: 0.74rem; }
+.contact-link {
+  color: var(--accent); text-decoration: none;
+  word-break: break-word; transition: text-shadow .2s;
+}
+.contact-link:hover { text-shadow: 0 0 12px var(--accent); }
 
 /* ---------- countdown ---------- */
 .countdown-wrap { text-align: center; margin-bottom: 22px; }

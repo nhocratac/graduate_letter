@@ -54,10 +54,13 @@ function renderCard(g) {
   $("#timeVal").textContent = EVENT.timeLabel;
   $("#venueVal").textContent = EVENT.venue;
   $("#addressVal").textContent = EVENT.address;
-  $("#zodiacSym").textContent = d.zodiac.sym;
-  $("#zodiacName").textContent = d.zodiac.vi;
-  $("#coords").textContent =
-    `${EVENT.lat.toFixed(4)}°N · ${EVENT.lng.toFixed(4)}°E`;
+  // liên hệ (link bấm được)
+  const phoneEl = $("#phoneVal");
+  phoneEl.textContent = EVENT.phone;
+  phoneEl.href = "tel:" + EVENT.phone.replace(/\s+/g, "");
+  const emailEl = $("#emailVal");
+  emailEl.textContent = EVENT.email;
+  emailEl.href = "mailto:" + EVENT.email;
 
   // tiêu đề tab
   document.title = `Thiệp mời · ${g.name} — ${EVENT.occasion} ${EVENT.host}`;

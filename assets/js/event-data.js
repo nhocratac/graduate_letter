@@ -19,6 +19,10 @@ export const EVENT = {
   venue:       "Trường Đại học Công nghệ Thông tin",
   venueShort:  "UIT — ĐH CNTT",
   address:     "Phường Linh Trung, TP. Thủ Đức, TP.HCM",
+
+  // Liên hệ (hiện trên mọi thiệp để mọi người dễ liên lạc)
+  phone:       "0397154698",
+  email:       "nguyenvietthang010@gmail.com",
   // Toạ độ UIT (dùng làm chi tiết HUD + link bản đồ)
   lat:         10.8700,
   lng:         106.8031,
