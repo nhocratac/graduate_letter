@@ -87,4 +87,17 @@ export const GUESTS = [
       "Thằng em “shiba” của anh! Mời em đến dự lễ tốt nghiệp của anh nhé. " +
       "Có mặt đầy đủ để anh em mình lại có thêm một kỷ niệm đáng nhớ.",
   },
+  {
+    id: "dang-quang",
+    name: "Đoàn Đăng Quang",
+    title: "Bạn",
+    photo: "assets/img/dang-quang.png",
+    message:
+      "Người bạn từ những ngày đầu đại học. Thẳng thắn, khẳng khái — đó là ấn tượng của tao về mày. " +
+      "Những quan điểm, tư duy sống rất riêng của mày nhiều khi làm người khác phải bất ngờ. " +
+      "Những môn học chung lớp, những giờ thực hành, những cuộc nói chuyện… đều đã là một phần " +
+      "của quãng đời đại học ngắn ngủi này. Mấy năm cuối tụi mình không đi chung một đoạn đường, " +
+      "một đích đến — nhưng kỷ niệm thì vẫn là phần đáng quý. Nay tao mời mày đến dự lễ tốt nghiệp của tao. " +
+      "Người khác có thể không đi, nhưng mày thì phải đi đó nha.",
+  },
 ];
