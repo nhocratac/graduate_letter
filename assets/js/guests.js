@@ -69,4 +69,13 @@ export const GUESTS = [
       "Cảm ơn cả tập thể MHX2025 – Chuyến Xe Công Nghệ vì những ngày tháng ý nghĩa ấy. " +
       "Rất mong được gặp lại mọi người trong buổi lễ tốt nghiệp của mình.",
   },
+  {
+    id: "nha-uyen",
+    name: "Tô Trần Nhã Uyên",
+    title: "Em gái",
+    photo: "assets/img/nha-uyen.jpeg",
+    message:
+      "Nàng thơ của Chuyến Xe Công Nghệ — cô em gái nhỏ của anh. Mời em đến dự lễ tốt " +
+      "nghiệp của anh nhé! Có sự góp mặt của em thì ngày vui của anh mới thật trọn vẹn.",
+  },
 ];
