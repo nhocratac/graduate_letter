@@ -170,4 +170,19 @@ export const GUESTS = [
       { type: "memory", kicker: "Một thời để nhớ", text: "Những trận banh, những lần 'gian lận'… Giờ không còn học chung trường, nhưng tụi mình vẫn là bạn tốt của nhau." },
     ],
   },
+  {
+    id: "manh-tan",
+    name: "Mạnh Tân",
+    title: "Em",
+    photo: "assets/img/manh-tan.png",
+    message:
+      "Trai đẹp của đội hình Chuyến Xe Công Nghệ! Em là người điềm đạm, tốt bụng, lúc nào cũng " +
+      "sẵn lòng giúp đỡ người khác. Hôm nay anh sắp tốt nghiệp rồi — anh muốn gửi đến em lời mời " +
+      "trân trọng nhất: hãy đến và chung vui trong lễ tốt nghiệp của anh nhé.",
+    journey: [
+      { type: "intro", kicker: "Một lời mời dành riêng cho" },
+      { type: "statement", kicker: "Chuyến Xe Công Nghệ", lines: ["Điềm đạm.", "Tốt bụng.", "Luôn giúp đỡ mọi người."] },
+      { type: "memory", kicker: "Hôm nay", text: "Anh sắp tốt nghiệp rồi. Anh muốn gửi đến em lời mời trân trọng nhất — hãy đến và chung vui cùng anh nhé." },
+    ],
+  },
 ];
