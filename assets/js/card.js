@@ -5,7 +5,11 @@ import { EVENT, EVENT_START, EVENT_END } from "./event-data.js";
 import { GUESTS } from "./guests.js";
 import { derive, initials } from "./style-engine.js";
 import { createScene } from "./scene.js";
+import { createSparkles } from "./sparkles.js";
 import { buildJourney } from "./journey.js";
+
+const PRINCESS = EVENT.theme === "princess";
+if (PRINCESS) document.documentElement.classList.add("theme-princess");
 
 const $ = (sel) => document.querySelector(sel);
 
@@ -26,7 +30,10 @@ if (!guest) {
 // ============================================================================
 function renderCard(g) {
   const d = derive(g.id, { palette: g.palette, zodiac: g.zodiac });
-  const pal = d.palette;
+  // theme công chúa: ép bảng màu hồng/vàng/lavender lấp lánh
+  const pal = PRINCESS
+    ? { name: "Pixie Dust", accent: "#ff8fce", accent2: "#ffd56b", planet: "#d98fff", glow: "#ffc8e6" }
+    : d.palette;
 
   // --- áp bảng màu vào CSS variables ---
   const root = document.documentElement.style;
@@ -36,9 +43,9 @@ function renderCard(g) {
   root.setProperty("--planet", pal.planet);
 
   // --- text nội dung ---
-  $("#hudTag").textContent = d.hudTag;
-  $("#designator").textContent = d.designator;
-  $("#paletteName").textContent = pal.paletteName;
+  $("#hudTag").textContent = PRINCESS ? "THIỆP MỜI ✨" : d.hudTag;
+  $("#designator").textContent = PRINCESS ? "♡ " + d.designator.replace("GR-", "DD-") : d.designator;
+  $("#paletteName").textContent = PRINCESS ? "PIXIE DUST" : pal.paletteName;
   $("#greeting").textContent = d.greeting;
   $("#guestName").textContent = (g.title ? g.title + " " : "") + g.name;
   $("#occasion").textContent = EVENT.occasion;
@@ -82,10 +89,19 @@ function renderCard(g) {
     /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
   let scene;
   try {
-    scene = createScene($("#bg"), { palette: pal, derived: d, quality: lowEnd ? "low" : "high" });
+    scene = PRINCESS
+      ? createSparkles($("#bg"), { palette: pal })
+      : createScene($("#bg"), { palette: pal, derived: d, quality: lowEnd ? "low" : "high" });
   } catch (e) {
-    console.warn("WebGL không khả dụng, dùng nền tĩnh.", e);
+    console.warn("Nền động không khả dụng, dùng nền tĩnh.", e);
     document.body.classList.add("no-webgl");
+  }
+
+  // chữ gợi ý theo theme
+  if (PRINCESS) {
+    const hint = document.querySelector(".hint");
+    if (hint) hint.textContent = "di chuột để mơ mộng — chạm vào nền để rắc kim tuyến ✨";
+    $("#pulseBtn") && ($("#pulseBtn").textContent = "✦ Rắc kim tuyến");
   }
 
   // click vào nền => hiệu ứng hành tinh

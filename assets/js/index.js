@@ -7,11 +7,16 @@ import { derive, initials } from "./style-engine.js";
 
 const $ = (s) => document.querySelector(s);
 
+const PRINCESS = EVENT.theme === "princess";
+if (PRINCESS) document.documentElement.classList.add("theme-princess");
+const PRINCESS_PAL = { accent: "#ff8fce", accent2: "#ffd56b", glow: "#ffc8e6", planet: "#d98fff", paletteName: "Pixie Dust" };
+
 // --- header ---
 $("#hostName").textContent = EVENT.host;
 $("#className").textContent = EVENT.className;
 $("#classOf").textContent = EVENT.classOf;
 $("#count").textContent = GUESTS.length;
+$("#footMeta").textContent = `${EVENT.host.toUpperCase()} · ${EVENT.dateLabel} · ${EVENT.venueShort}`;
 
 // --- render lưới khách ---
 const grid = $("#grid");
@@ -19,7 +24,7 @@ const base = location.href.replace(/index\.html.*$/, "").replace(/\/?$/, "/");
 
 GUESTS.forEach((g, idx) => {
   const d = derive(g.id, { palette: g.palette, zodiac: g.zodiac });
-  const pal = d.palette;
+  const pal = PRINCESS ? PRINCESS_PAL : d.palette;
   const url = `${base}card.html?id=${encodeURIComponent(g.id)}`;
 
   const card = document.createElement("article");
@@ -39,9 +44,9 @@ GUESTS.forEach((g, idx) => {
       <div class="g-avatar">${avatar}</div>
       <div class="g-meta">
         <h3>${g.title ? esc(g.title) + " " : ""}${esc(g.name)}</h3>
-        <span class="mono dim">${pal.paletteName} · ${d.zodiac.sym} ${d.zodiac.vi}</span>
+        <span class="mono dim">${PRINCESS ? "✨ Thiệp lấp lánh" : `${pal.paletteName} · ${d.zodiac.sym} ${d.zodiac.vi}`}</span>
       </div>
-      <span class="g-no mono">${d.designator}</span>
+      <span class="g-no mono">${PRINCESS ? "♡ " + d.designator.replace("GR-", "DD-") : d.designator}</span>
     </div>
     <code class="g-link mono">card.html?id=${esc(g.id)}</code>
     <div class="g-actions">
@@ -113,7 +118,7 @@ function initStars() {
       st.a += st.s; const tw = 0.4 + Math.abs(Math.sin(st.a)) * 0.6;
       st.y += st.vy; if (st.y > h) { st.y = 0; st.x = Math.random() * w; }
       ctx.globalAlpha = tw;
-      ctx.fillStyle = "#cfe6ff";
+      ctx.fillStyle = PRINCESS ? "#ffd9f0" : "#cfe6ff";
       ctx.beginPath(); ctx.arc(st.x, st.y, st.r, 0, Math.PI * 2); ctx.fill();
     }
     ctx.globalAlpha = 1;

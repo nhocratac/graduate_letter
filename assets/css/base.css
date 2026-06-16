@@ -18,6 +18,34 @@
   --display: "Unbounded", var(--body);
 }
 
+/* ===== THEME CÔNG CHÚA / LẤP LÁNH (princess) ===== */
+html.theme-princess {
+  --bg:        #1b0a22;
+  --bg-2:      #2c1233;
+  --ink:       #fff4fb;
+  --ink-dim:   #e7bcdd;
+  --accent:    #ff8fce;
+  --accent-2:  #ffd56b;
+  --glow:      #ffc8e6;
+  --planet:    #d98fff;
+  --panel:     rgba(48, 18, 56, 0.5);
+  --panel-line: rgba(255, 185, 230, 0.30);
+  --radius:    24px;
+  --mono:    "Quicksand", system-ui, sans-serif;
+  --display: "Playfair Display", Georgia, serif;
+}
+html.theme-princess body {
+  background:
+    radial-gradient(1100px 700px at 50% -8%, #4a1d52 0%, transparent 60%),
+    radial-gradient(900px 650px at 12% 18%, #7a2f7e 0%, transparent 52%),
+    radial-gradient(950px 700px at 92% 88%, #b85c9e 0%, transparent 50%),
+    linear-gradient(180deg, #1b0a22, #25102b 60%, #321540);
+}
+/* theme công chúa: bỏ scanline kiểu HUD, kim tuyến lo phần lấp lánh */
+html.theme-princess .scanlines { display: none; }
+html.theme-princess .grain { opacity: 0.03; }
+html.theme-princess ::selection { background: var(--accent); color: #2b0a26; }
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 html, body { height: 100%; }
