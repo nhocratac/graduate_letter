@@ -185,4 +185,20 @@ export const GUESTS = [
       { type: "memory", kicker: "Hôm nay", text: "Anh sắp tốt nghiệp rồi. Anh muốn gửi đến em lời mời trân trọng nhất — hãy đến và chung vui cùng anh nhé." },
     ],
   },
+  {
+    // NỘI DUNG MẪU (demo) — có thể thay bằng lời nhắn thật sau
+    id: "dao-dao",
+    name: "Đào Đào",
+    photo: "assets/img/dao-dao.png",
+    message:
+      "Cảm ơn bạn đã là một phần thanh xuân của mình — những buổi học, những lần cà phê, những " +
+      "câu chuyện không đầu không cuối… tất cả đều thật đáng nhớ. Nay mình đã tốt nghiệp rồi, " +
+      "mình trân trọng mời bạn đến chung vui trong ngày đặc biệt này nhé!",
+    journey: [
+      { type: "intro", kicker: "Trân trọng kính mời" },
+      { type: "milestone", big: "4 năm", text: "thanh xuân rực rỡ, và có bạn ở trong đó." },
+      { type: "statement", kicker: "Với mình, bạn là", lines: ["Một người bạn.", "Một mảnh ký ức.", "Một phần thanh xuân."] },
+      { type: "memory", kicker: "Và hôm nay", text: "Mình tốt nghiệp rồi. Mong có bạn đến chung vui trong ngày trọng đại này." },
+    ],
+  },
 ];
