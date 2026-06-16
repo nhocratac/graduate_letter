@@ -18,6 +18,14 @@
   <link rel="stylesheet" href="assets/css/card.css" />
 </head>
 <body>
+  <!-- intro video (theme công chúa) — JS hiện/ẩn, bấm để bỏ qua -->
+  <div id="introVideo" class="intro-video" hidden>
+    <video id="introVid" muted playsinline preload="auto" poster="">
+      <source src="assets/video/intro-princess.mp4" type="video/mp4" />
+    </video>
+    <button class="intro-skip" id="introSkip" type="button">Bỏ qua ↦</button>
+  </div>
+
   <!-- nền 3D -->
   <canvas id="bg" aria-hidden="true"></canvas>
   <div class="grain" aria-hidden="true"></div>

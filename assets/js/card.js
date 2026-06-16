@@ -133,8 +133,36 @@ function renderCard(g) {
   // --- tilt nhẹ tấm thiệp theo chuột (desktop) ---
   setupTilt($("#ticket"));
 
+  // intro video cửa lâu đài (chỉ theme công chúa)
+  initIntro();
+
   // gỡ màn chờ + chạy animation vào
   requestAnimationFrame(() => document.body.classList.add("ready"));
+}
+
+// ---- intro video (theme princess): phát 1 lần, bấm/đợi xong thì mờ dần ----
+function initIntro() {
+  if (!PRINCESS) return;
+  const overlay = $("#introVideo");
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!overlay || reduce) return;
+
+  const vid = $("#introVid");
+  overlay.hidden = false;
+  let done = false;
+  const finish = () => {
+    if (done) return; done = true;
+    overlay.classList.add("fade");
+    setTimeout(() => overlay.remove(), 850);
+  };
+  vid.addEventListener("ended", finish);
+  $("#introSkip")?.addEventListener("click", finish);
+  // an toàn: tự đóng sau 9.5s phòng khi video kẹt
+  const guard = setTimeout(finish, 9500);
+  vid.addEventListener("ended", () => clearTimeout(guard));
+  // autoplay (muted) — nếu trình duyệt chặn thì bỏ qua intro
+  const p = vid.play?.();
+  if (p && p.catch) p.catch(() => finish());
 }
 
 // ---- avatar: dùng ảnh hoặc tự vẽ từ chữ cái đầu ---------------------------

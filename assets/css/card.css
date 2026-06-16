@@ -316,6 +316,24 @@ html.has-journey { scroll-snap-type: y proximity; }
 .not-found-screen h1 { font-family: var(--display); font-size: clamp(1.6rem, 6vw, 2.4rem); }
 .not-found-screen p { color: var(--ink-dim); max-width: 40ch; margin: 0 auto; }
 
+/* ---------- intro video (cửa lâu đài) ---------- */
+.intro-video {
+  position: fixed; inset: 0; z-index: 50; background: #1b0a22;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.8s ease; opacity: 1;
+}
+.intro-video.fade { opacity: 0; }
+.intro-video video { width: 100%; height: 100%; object-fit: cover; }
+.intro-skip {
+  position: fixed; bottom: 22px; right: 22px; z-index: 51;
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: #fff; cursor: pointer;
+  background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.45);
+  padding: 8px 16px; border-radius: 999px; backdrop-filter: blur(4px);
+  transition: background 0.2s, border-color 0.2s;
+}
+.intro-skip:hover { background: rgba(0,0,0,0.55); border-color: #fff; }
+
 /* ============================================================
    ĐIỂM NHẤN THEME CÔNG CHÚA
    ============================================================ */
