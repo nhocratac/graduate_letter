@@ -32,7 +32,7 @@ function renderCard(g) {
   const d = derive(g.id, { palette: g.palette, zodiac: g.zodiac });
   // theme công chúa: ép bảng màu hồng/vàng/lavender lấp lánh
   const pal = PRINCESS
-    ? { name: "Pixie Dust", accent: "#ff8fce", accent2: "#ffd56b", planet: "#d98fff", glow: "#ffc8e6" }
+    ? { name: "Pixie Dust", accent: "#e07da4", accent2: "#a48ee0", planet: "#c9a9f0", glow: "#9fe0d2" }
     : d.palette;
 
   // --- áp bảng màu vào CSS variables ---
@@ -43,8 +43,8 @@ function renderCard(g) {
   root.setProperty("--planet", pal.planet);
 
   // --- text nội dung ---
-  $("#hudTag").textContent = PRINCESS ? "THIỆP MỜI ✨" : d.hudTag;
-  $("#designator").textContent = PRINCESS ? "♡ " + d.designator.replace("GR-", "DD-") : d.designator;
+  $("#hudTag").textContent = PRINCESS ? "Thiệp Mời" : d.hudTag;
+  $("#designator").textContent = PRINCESS ? d.designator.replace("GR-", "No. ") : d.designator;
   $("#paletteName").textContent = PRINCESS ? "PIXIE DUST" : pal.paletteName;
   $("#greeting").textContent = d.greeting;
   $("#guestName").textContent = (g.title ? g.title + " " : "") + g.name;
@@ -90,7 +90,7 @@ function renderCard(g) {
   let scene;
   try {
     scene = PRINCESS
-      ? createSparkles($("#bg"), { palette: pal })
+      ? createSparkles($("#bg"), { palette: pal, light: true })
       : createScene($("#bg"), { palette: pal, derived: d, quality: lowEnd ? "low" : "high" });
   } catch (e) {
     console.warn("Nền động không khả dụng, dùng nền tĩnh.", e);
@@ -100,8 +100,8 @@ function renderCard(g) {
   // chữ gợi ý theo theme
   if (PRINCESS) {
     const hint = document.querySelector(".hint");
-    if (hint) hint.textContent = "di chuột để mơ mộng — chạm vào nền để rắc kim tuyến ✨";
-    $("#pulseBtn") && ($("#pulseBtn").textContent = "✦ Rắc kim tuyến");
+    if (hint) hint.textContent = "di chuột để mơ mộng — chạm vào nền để rắc kim tuyến";
+    $("#pulseBtn") && ($("#pulseBtn").textContent = "Rắc kim tuyến");
   }
 
   // click vào nền => hiệu ứng hành tinh

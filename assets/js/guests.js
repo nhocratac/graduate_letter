@@ -15,12 +15,12 @@ export const GUESTS = [
     message:
       "Cảm ơn cậu vì đã cùng tớ đi qua cả một quãng thanh xuân lấp lánh — những deadline trắng đêm, " +
       "những buổi tác nghiệp, những lần cười đến chảy nước mắt. Nay tớ tốt nghiệp ngành Báo chí rồi, " +
-      "tớ mời cậu đến chung vui trong ngày trọng đại của tớ nhé, công chúa ơi ✨",
+      "tớ mời cậu đến chung vui trong ngày trọng đại của tớ nhé, công chúa ơi",
     journey: [
       { type: "intro", kicker: "Một tấm thiệp lấp lánh gửi" },
       { type: "statement", kicker: "Suốt 4 năm", lines: ["Cùng nhau cười.", "Cùng nhau khóc.", "Cùng nhau lớn lên."] },
       { type: "memory", kicker: "Cảm ơn cậu", text: "Vì đã luôn ở bên tớ suốt quãng đời sinh viên đáng nhớ này — qua từng bài báo, từng chuyến đi, từng giấc mơ." },
-      { type: "memory", kicker: "Và hôm nay", text: "Tớ tốt nghiệp ngành Báo chí rồi! Đến dự ngày trọng đại của tớ nhé, mình cùng nhau toả sáng ✨" },
+      { type: "memory", kicker: "Và hôm nay", text: "Tớ tốt nghiệp ngành Báo chí rồi! Đến dự ngày trọng đại của tớ nhé, mình cùng nhau toả sáng" },
     ],
   },
   {
@@ -31,7 +31,7 @@ export const GUESTS = [
     journey: [
       { type: "intro", kicker: "Trân trọng kính mời" },
       { type: "statement", kicker: "Một lời mời", lines: ["Nhỏ xinh.", "Và lấp lánh."] },
-      { type: "memory", kicker: "Hôm nay", text: "Mình tốt nghiệp rồi — rất mong có bạn đến chung vui trong ngày đặc biệt này ✨" },
+      { type: "memory", kicker: "Hôm nay", text: "Mình tốt nghiệp rồi — rất mong có bạn đến chung vui trong ngày đặc biệt này" },
     ],
   },
 ];

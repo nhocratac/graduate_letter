@@ -5,7 +5,10 @@
 // ============================================================================
 export function createSparkles(canvas, opts = {}) {
   const pal = opts.palette || { accent: "#ff8fce", accent2: "#ffd56b", glow: "#ffc8e6" };
-  const colors = [pal.accent, pal.accent2, pal.glow, "#ffffff", "#ffe9f6"];
+  const light = !!opts.light; // nền sáng (editorial) -> dịu, ít hạt, màu pastel đậm hơn
+  const colors = light
+    ? [pal.accent, pal.accent2, pal.glow, "#e7a8c6", "#f3cf93"]
+    : [pal.accent, pal.accent2, pal.glow, "#ffffff", "#ffe9f6"];
   const ctx = canvas.getContext("2d");
   let W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
 
@@ -21,7 +24,7 @@ export function createSparkles(canvas, opts = {}) {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // --- bokeh: bong bóng mờ trôi lên ---
-  const BOKEH = reduce ? 0 : 26;
+  const BOKEH = reduce ? 0 : (light ? 14 : 26);
   const bokeh = Array.from({ length: BOKEH }, () => spawnBokeh(true));
   function spawnBokeh(init) {
     return {
@@ -29,7 +32,7 @@ export function createSparkles(canvas, opts = {}) {
       y: init ? Math.random() * H : H + 40,
       r: 6 + Math.random() * 26,
       c: colors[(Math.random() * colors.length) | 0],
-      a: 0.05 + Math.random() * 0.18,
+      a: light ? 0.04 + Math.random() * 0.08 : 0.05 + Math.random() * 0.18,
       vy: 6 + Math.random() * 16,
       sway: Math.random() * Math.PI * 2,
       swaySpd: 0.4 + Math.random() * 0.8,
@@ -37,7 +40,7 @@ export function createSparkles(canvas, opts = {}) {
   }
 
   // --- sparkle: ngôi sao 4 cánh nhấp nháy ---
-  const SP = reduce ? 18 : 70;
+  const SP = reduce ? 16 : (light ? 34 : 70);
   const sparks = Array.from({ length: SP }, () => spawnSpark(true));
   function spawnSpark(init) {
     return {

@@ -9,7 +9,7 @@ const $ = (s) => document.querySelector(s);
 
 const PRINCESS = EVENT.theme === "princess";
 if (PRINCESS) document.documentElement.classList.add("theme-princess");
-const PRINCESS_PAL = { accent: "#ff8fce", accent2: "#ffd56b", glow: "#ffc8e6", planet: "#d98fff", paletteName: "Pixie Dust" };
+const PRINCESS_PAL = { accent: "#e07da4", accent2: "#a48ee0", glow: "#9fe0d2", planet: "#c9a9f0", paletteName: "Pixie Dust" };
 
 // --- header ---
 $("#hostName").textContent = EVENT.host;
@@ -44,7 +44,7 @@ GUESTS.forEach((g, idx) => {
       <div class="g-avatar">${avatar}</div>
       <div class="g-meta">
         <h3>${g.title ? esc(g.title) + " " : ""}${esc(g.name)}</h3>
-        <span class="mono dim">${PRINCESS ? "✨ Thiệp lấp lánh" : `${pal.paletteName} · ${d.zodiac.sym} ${d.zodiac.vi}`}</span>
+        <span class="mono dim">${PRINCESS ? "Thiệp lấp lánh" : `${pal.paletteName} · ${d.zodiac.sym} ${d.zodiac.vi}`}</span>
       </div>
       <span class="g-no mono">${PRINCESS ? "♡ " + d.designator.replace("GR-", "DD-") : d.designator}</span>
     </div>

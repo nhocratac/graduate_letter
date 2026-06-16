@@ -36,7 +36,7 @@ export const EVENT = {
     "Mình thật lòng mong được gặp và đón bạn tại buổi lễ nhé!",
 
   presenceLine:
-    "Rất mong bạn sắp xếp thời gian đến chung vui — có bạn, ngày của mình mới thật trọn vẹn ✨",
+    "Rất mong bạn sắp xếp thời gian đến chung vui — có bạn, ngày của mình mới thật trọn vẹn",
 };
 
 // Tính chuỗi datetime đầy đủ cho countdown / lịch (giờ VN +07:00)

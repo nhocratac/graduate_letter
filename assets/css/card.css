@@ -335,28 +335,90 @@ html.has-journey { scroll-snap-type: y proximity; }
 .intro-skip:hover { background: rgba(0,0,0,0.55); border-color: #fff; }
 
 /* ============================================================
-   ĐIỂM NHẤN THEME CÔNG CHÚA
+   THEME CÔNG CHÚA · PASTEL DREAM EDITORIAL (light)
    ============================================================ */
-html.theme-princess .tag { border-radius: 999px; letter-spacing: 0.14em; }
-html.theme-princess .avatar-ring { animation-duration: 22s; }
-/* vương miện nhỏ trên avatar */
+/* icon SVG dùng chung (thay emoji) */
+svg.d-ico { width: 22px; height: 22px; flex: 0 0 auto; }
+html.theme-princess .d-ico { color: var(--accent); filter: none; }
+
+/* nền kim tuyến canvas dịu lại để editorial thoáng */
+html.theme-princess #bg { opacity: 0.85; }
+
+/* ---- TẤM THIỆP: thẻ tạp chí kem, viền foil mảnh ---- */
+html.theme-princess .ticket {
+  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,250,247,0.86));
+  border: 1px solid rgba(196,150,176,0.35);
+  box-shadow: 0 44px 90px -42px rgba(120,70,100,0.42), 0 0 0 1px rgba(255,255,255,0.55) inset;
+}
+html.theme-princess .ticket::before { background: var(--foil); opacity: 0.55; }
+html.theme-princess .corner { border-color: var(--accent); opacity: 0.5; }
+html.theme-princess .ticket-head { border-bottom: 1px dashed rgba(196,150,176,0.4); }
+html.theme-princess .ticket-head .dim, html.theme-princess .ticket-head b { color: var(--ink-dim); }
+
+/* nhãn editorial + sparkle SVG hai bên */
+html.theme-princess .tag {
+  background: transparent; color: var(--accent); box-shadow: none;
+  border-radius: 0; padding: 0; letter-spacing: 0.34em; font-weight: 700;
+  display: inline-flex; align-items: center; gap: 9px;
+}
+html.theme-princess .tag::before, html.theme-princess .tag::after {
+  content: ""; width: 12px; height: 12px; background: var(--accent);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0c1 6 5 10 12 12-7 2-11 6-12 12-1-6-5-10-12-12 7-2 11-6 12-12z' fill='black'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0c1 6 5 10 12 12-7 2-11 6-12 12-1-6-5-10-12-12 7-2 11-6 12-12z' fill='black'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+/* ---- avatar: vương miện SVG vàng (thay emoji) ---- */
+html.theme-princess .avatar-ring { animation-duration: 26s; box-shadow: 0 0 34px -12px var(--accent); }
 html.theme-princess .avatar-ring::before {
-  content: "👑"; position: absolute; top: -18px; left: 50%;
-  transform: translateX(-50%) rotate(-8deg); font-size: 1.25rem;
-  filter: drop-shadow(0 2px 6px rgba(255,143,206,.6)); z-index: 3;
+  content: ""; position: absolute; top: -17px; left: 50%; z-index: 3;
+  width: 36px; height: 23px; transform: translateX(-50%);
+  background: linear-gradient(180deg, #f6cd83, #d99a3e);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 26'%3E%3Cpath d='M3 23h34l-3-14-8 6-6-11-6 11-8-6z' fill='black'/%3E%3Ccircle cx='3' cy='8' r='2.4' fill='black'/%3E%3Ccircle cx='37' cy='8' r='2.4' fill='black'/%3E%3Ccircle cx='20' cy='3' r='2.4' fill='black'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 26'%3E%3Cpath d='M3 23h34l-3-14-8 6-6-11-6 11-8-6z' fill='black'/%3E%3Ccircle cx='3' cy='8' r='2.4' fill='black'/%3E%3Ccircle cx='37' cy='8' r='2.4' fill='black'/%3E%3Ccircle cx='20' cy='3' r='2.4' fill='black'/%3E%3C/svg%3E") center/contain no-repeat;
+  filter: drop-shadow(0 2px 3px rgba(180,120,60,0.45));
 }
-/* tên người nhận & câu statement: dáng thanh, mềm */
-html.theme-princess .b-name { font-style: italic; }
+
+/* ---- chữ ---- */
+html.theme-princess .recipient-text h2 { font-family: var(--display); font-style: italic; font-weight: 600; }
 html.theme-princess .event-title h1 {
-  background: linear-gradient(180deg, #ffffff, var(--accent));
-  -webkit-background-clip: text; background-clip: text;
+  font-family: var(--display); font-weight: 900; font-style: italic;
+  font-size: clamp(2.4rem, 11vw, 3.7rem); line-height: 0.96;
+  background: var(--foil); background-size: 200% auto;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-shadow: none; animation: foilShift 7s ease-in-out infinite;
 }
-/* nút & viền dịu hơn */
-html.theme-princess .btn { border-radius: 999px; }
-html.theme-princess .ticket { box-shadow:
-  0 0 0 1px rgba(255,255,255,0.04) inset,
-  0 30px 80px -20px rgba(40,8,40,0.7),
-  0 0 70px -18px var(--accent); }
+@keyframes foilShift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+html.theme-princess .event-title .host, html.theme-princess .event-title .host strong { color: var(--ink); }
+html.theme-princess .host strong { font-family: var(--display); font-style: italic; font-weight: 600; }
+html.theme-princess .message { color: var(--ink); }
+html.theme-princess .message .presence { color: var(--accent); }
+
+/* ---- chi tiết + countdown: thẻ trắng ---- */
+html.theme-princess .detail { background: rgba(255,255,255,0.66); border: 1px solid rgba(196,150,176,0.28); }
+html.theme-princess .detail b { color: var(--ink); }
+html.theme-princess .detail small { color: var(--ink-dim); }
+html.theme-princess .contact-link { color: var(--accent); }
+html.theme-princess .cd { background: rgba(255,255,255,0.66); border-color: rgba(196,150,176,0.28); box-shadow: none; }
+html.theme-princess .cd b { color: var(--accent); text-shadow: none; }
+html.theme-princess .cd small, html.theme-princess .cd-label { color: var(--ink-dim); }
+
+/* ---- nút editorial ---- */
+html.theme-princess .btn { border-radius: 999px; border-color: rgba(196,150,176,0.4); background: rgba(255,255,255,0.6); color: var(--ink); }
+html.theme-princess .btn.primary { background: var(--accent); color: #fff; border-color: transparent; box-shadow: 0 10px 26px -10px var(--accent); }
+html.theme-princess .btn.ghost:hover { border-color: var(--accent); box-shadow: 0 0 18px -8px var(--accent); }
+html.theme-princess .hint { color: var(--ink-dim); }
+
+/* ---- JOURNEY editorial ---- */
+html.theme-princess .b-kicker { color: var(--accent); }
+html.theme-princess .b-name, html.theme-princess .b-statement { font-style: italic; }
+html.theme-princess .b-lead { color: var(--ink); }
+html.theme-princess .b-sub { color: var(--ink-dim); }
+html.theme-princess .grad { background: var(--foil); -webkit-background-clip: text; background-clip: text; color: transparent; }
+html.theme-princess .scrollhint { color: var(--ink-dim); }
+html.theme-princess .skip-journey { background: rgba(255,255,255,0.62); border-color: rgba(196,150,176,0.4); color: var(--ink-dim); }
+html.theme-princess .skip-journey:hover { color: var(--accent); border-color: var(--accent); }
+html.theme-princess .progress-rail { background: rgba(150,110,140,0.18); }
+html.theme-princess .not-found-screen h1 { color: var(--ink); }
 
 /* ---------- mobile ---------- */
 @media (max-width: 480px) {

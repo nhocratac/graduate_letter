@@ -18,33 +18,37 @@
   --display: "Unbounded", var(--body);
 }
 
-/* ===== THEME CÔNG CHÚA / LẤP LÁNH (princess) ===== */
+/* ===== THEME CÔNG CHÚA · PASTEL DREAM EDITORIAL (light) ===== */
 html.theme-princess {
-  --bg:        #1b0a22;
-  --bg-2:      #2c1233;
-  --ink:       #fff4fb;
-  --ink-dim:   #e7bcdd;
-  --accent:    #ff8fce;
-  --accent-2:  #ffd56b;
-  --glow:      #ffc8e6;
-  --planet:    #d98fff;
-  --panel:     rgba(48, 18, 56, 0.5);
-  --panel-line: rgba(255, 185, 230, 0.30);
-  --radius:    24px;
+  --bg:        #faf3ec;   /* kem ấm */
+  --bg-2:      #f4e7ec;
+  --ink:       #43293a;   /* mận đậm mềm */
+  --ink-dim:   #9d8390;   /* mauve trầm */
+  --accent:    #e07da4;   /* blush rose */
+  --accent-2:  #a48ee0;   /* lilac */
+  --glow:      #f6c8dd;
+  --planet:    #c9a9f0;
+  --panel:     rgba(255, 255, 255, 0.72);
+  --panel-line: rgba(196, 150, 176, 0.32);
+  --radius:    28px;
   --mono:    "Quicksand", system-ui, sans-serif;
-  --display: "Playfair Display", Georgia, serif;
+  --display: "Fraunces", Georgia, serif;
+  /* foil ngũ sắc cho chữ & viền lấp lánh */
+  --foil: linear-gradient(115deg, #ef9fc0 0%, #c2a6ef 28%, #9fe0d2 52%, #f7d49e 74%, #ef9fc0 100%);
 }
 html.theme-princess body {
+  color: var(--ink);
   background:
-    radial-gradient(1100px 700px at 50% -8%, #4a1d52 0%, transparent 60%),
-    radial-gradient(900px 650px at 12% 18%, #7a2f7e 0%, transparent 52%),
-    radial-gradient(950px 700px at 92% 88%, #b85c9e 0%, transparent 50%),
-    linear-gradient(180deg, #1b0a22, #25102b 60%, #321540);
+    radial-gradient(58% 48% at 16% 10%, #f8d7e6 0%, transparent 60%),
+    radial-gradient(54% 44% at 86% 16%, #e4d8f7 0%, transparent 60%),
+    radial-gradient(60% 52% at 80% 94%, #d6f0e9 0%, transparent 56%),
+    radial-gradient(50% 40% at 22% 88%, #fde9d4 0%, transparent 55%),
+    linear-gradient(180deg, #fdf8f2, #faf2ea);
 }
-/* theme công chúa: bỏ scanline kiểu HUD, kim tuyến lo phần lấp lánh */
+/* light theme: bỏ scanline kiểu HUD; grain dịu kiểu giấy in */
 html.theme-princess .scanlines { display: none; }
-html.theme-princess .grain { opacity: 0.03; }
-html.theme-princess ::selection { background: var(--accent); color: #2b0a26; }
+html.theme-princess .grain { opacity: 0.05; mix-blend-mode: multiply; }
+html.theme-princess ::selection { background: var(--accent); color: #fff; }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
