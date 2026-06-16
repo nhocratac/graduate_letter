@@ -318,12 +318,14 @@ html.has-journey { scroll-snap-type: y proximity; }
 
 /* ---------- intro video (cửa lâu đài) ---------- */
 .intro-video {
-  position: fixed; inset: 0; z-index: 50; background: #1b0a22;
+  position: fixed; inset: 0; z-index: 50;
+  /* nền kem blend với mép video -> letterbox liền mạch trên màn dọc, không crop */
+  background: radial-gradient(60% 50% at 50% 30%, #fbe7ef 0%, transparent 60%), #faf3ec;
   display: flex; align-items: center; justify-content: center;
   transition: opacity 0.8s ease; opacity: 1;
 }
 .intro-video.fade { opacity: 0; }
-.intro-video video { width: 100%; height: 100%; object-fit: cover; }
+.intro-video video { width: 100%; height: 100%; object-fit: contain; }
 .intro-skip {
   position: fixed; bottom: 22px; right: 22px; z-index: 51;
   font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em;

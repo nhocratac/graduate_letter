@@ -128,6 +128,20 @@ function renderCard(g) {
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
+
+    // tới tấm thiệp thì ẩn nút "Bỏ qua" + progress rail (tránh đè header)
+    const stage = $("#stage");
+    if (stage && "IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries) => entries.forEach((e) => {
+          const atTicket = e.isIntersecting && e.intersectionRatio > 0.3;
+          $("#skipJourney").hidden = atTicket;
+          $("#progressRail").hidden = atTicket;
+        }),
+        { threshold: [0, 0.3, 0.6] }
+      );
+      io.observe(stage);
+    }
   }
 
   // --- tilt nhẹ tấm thiệp theo chuột (desktop) ---
