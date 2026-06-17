@@ -7,6 +7,7 @@ import { derive, initials } from "./style-engine.js";
 import { createScene } from "./scene.js";
 import { createSparkles } from "./sparkles.js";
 import { buildJourney } from "./journey.js";
+import { createMusicBox } from "./music.js";
 
 const PRINCESS = EVENT.theme === "princess";
 if (PRINCESS) document.documentElement.classList.add("theme-princess");
@@ -146,6 +147,19 @@ function renderCard(g) {
 
   // --- tilt nhẹ tấm thiệp theo chuột (desktop) ---
   setupTilt($("#ticket"));
+
+  // hộp nhạc công chúa (chỉ theme công chúa)
+  if (PRINCESS) {
+    const btn = $("#musicToggle");
+    if (btn) {
+      btn.hidden = false;
+      const box = createMusicBox();
+      btn.addEventListener("click", () => {
+        const on = box.toggle();
+        btn.classList.toggle("playing", on);
+      });
+    }
+  }
 
   // intro video cửa lâu đài (chỉ theme công chúa)
   initIntro();

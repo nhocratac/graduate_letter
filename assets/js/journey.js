@@ -35,6 +35,12 @@ function renderBeat(b, guest) {
         `<h2 class="b-statement">${lines}</h2>`
       );
     }
+    case "photo":
+      return (
+        `<figure class="b-photo"><img src="${esc(b.src)}" alt="${esc(b.alt || "")}" loading="lazy"/></figure>` +
+        (b.kicker ? `<div class="b-kicker">${esc(b.kicker)}</div>` : "") +
+        (b.text ? `<p class="b-lead">${esc(b.text)}</p>` : "")
+      );
     case "memory":
     default:
       return (

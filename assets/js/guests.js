@@ -19,6 +19,7 @@ export const GUESTS = [
     journey: [
       { type: "intro", kicker: "Một tấm thiệp lấp lánh gửi" },
       { type: "statement", kicker: "Suốt 4 năm", lines: ["Cùng nhau cười.", "Cùng nhau khóc.", "Cùng nhau lớn lên."] },
+      { type: "photo", src: "assets/img/dao-dao.png", alt: "Đào Đào", kicker: "Một thanh xuân rực rỡ", text: "…và cậu đã luôn ở trong đó." },
       { type: "memory", kicker: "Cảm ơn cậu", text: "Vì đã luôn ở bên tớ suốt quãng đời sinh viên đáng nhớ này — qua từng bài báo, từng chuyến đi, từng giấc mơ." },
       { type: "memory", kicker: "Và hôm nay", text: "Tớ tốt nghiệp ngành Báo chí rồi! Đến dự ngày trọng đại của tớ nhé, mình cùng nhau toả sáng" },
     ],

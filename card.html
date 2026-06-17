@@ -3,9 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Thiệp mời tốt nghiệp</title>
-  <meta name="description" content="Thiệp mời dự Lễ Tốt Nghiệp — chủ đề vũ trụ & công nghệ." />
-  <meta name="theme-color" content="#05070f" />
+  <title>Thiệp mời · Lễ Tốt Nghiệp Đào Đào</title>
+  <meta name="description" content="Thiệp mời dự Lễ Tốt Nghiệp của Đào Đào — một hành trình lấp lánh trước khi đến lời mời." />
+  <meta name="theme-color" content="#faf3ec" />
+
+  <!-- favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+
+  <!-- link preview (Open Graph + Twitter) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Thiệp mời · Lễ Tốt Nghiệp Đào Đào" />
+  <meta property="og:description" content="Mình tốt nghiệp rồi — mời bạn đến chung vui trong ngày trọng đại này nhé." />
+  <meta property="og:image" content="https://nhocratac.github.io/graduate_letter/assets/img/og-cover.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Thiệp mời · Lễ Tốt Nghiệp Đào Đào" />
+  <meta name="twitter:description" content="Mình tốt nghiệp rồi — mời bạn đến chung vui trong ngày trọng đại này nhé." />
+  <meta name="twitter:image" content="https://nhocratac.github.io/graduate_letter/assets/img/og-cover.png" />
 
   <!-- Fonts: Unbounded (display) · Be Vietnam Pro (body) · JetBrains Mono (HUD) — đều hỗ trợ tiếng Việt -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -41,6 +56,12 @@
   <!-- nút bỏ qua + thanh tiến độ (chỉ hiện khi có hành trình) -->
   <a class="skip-journey" id="skipJourney" href="#stage" hidden>Bỏ qua →</a>
   <div class="progress-rail" id="progressRail" hidden><i></i></div>
+
+  <!-- bật/tắt hộp nhạc công chúa (Web Audio, không file) -->
+  <button id="musicToggle" class="music-toggle" type="button" hidden aria-label="Bật/tắt nhạc nền">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 17.4a3 3 0 1 1-1.8-2.75V6.2l10-2v9.1a3 3 0 1 1-1.8-2.75V6.6L9 7.9z"/></svg>
+    <span class="mute-line"></span>
+  </button>
 
   <!-- HÀNH TRÌNH CUỘN (JS dựng động từ guest.journey) -->
   <div id="journey" class="journey"></div>
