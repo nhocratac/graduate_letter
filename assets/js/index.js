@@ -7,9 +7,12 @@ import { derive, initials } from "./style-engine.js";
 
 const $ = (s) => document.querySelector(s);
 
-const PRINCESS = EVENT.theme === "princess";
-if (PRINCESS) document.documentElement.classList.add("theme-princess");
+const THEME = EVENT.theme || "cosmic";
+const PRINCESS = THEME === "princess";
+const CHAMPION = THEME === "champion";
+if (PRINCESS || CHAMPION) document.documentElement.classList.add(`theme-${THEME}`);
 const PRINCESS_PAL = { accent: "#e07da4", accent2: "#a48ee0", glow: "#9fe0d2", planet: "#c9a9f0", paletteName: "Pixie Dust" };
+const CHAMPION_PAL = { accent: "#edbb00", accent2: "#a50044", glow: "#ffdd66", planet: "#004d98", paletteName: "Blaugrana" };
 
 // --- header ---
 $("#hostName").textContent = EVENT.host;
@@ -24,7 +27,7 @@ const base = location.href.replace(/index\.html.*$/, "").replace(/\/?$/, "/");
 
 GUESTS.forEach((g, idx) => {
   const d = derive(g.id, { palette: g.palette, zodiac: g.zodiac });
-  const pal = PRINCESS ? PRINCESS_PAL : d.palette;
+  const pal = PRINCESS ? PRINCESS_PAL : CHAMPION ? CHAMPION_PAL : d.palette;
   const url = `${base}card.html?id=${encodeURIComponent(g.id)}`;
 
   const card = document.createElement("article");
@@ -44,9 +47,17 @@ GUESTS.forEach((g, idx) => {
       <div class="g-avatar">${avatar}</div>
       <div class="g-meta">
         <h3>${g.title ? esc(g.title) + " " : ""}${esc(g.name)}</h3>
-        <span class="mono dim">${PRINCESS ? "Thiệp lấp lánh" : `${pal.paletteName} · ${d.zodiac.sym} ${d.zodiac.vi}`}</span>
+        <span class="mono dim">${
+          PRINCESS ? "Thiệp lấp lánh"
+          : CHAMPION ? "Thiệp sân cỏ"
+          : `${pal.paletteName} · ${d.zodiac.sym} ${d.zodiac.vi}`
+        }</span>
       </div>
-      <span class="g-no mono">${PRINCESS ? "♡ " + d.designator.replace("GR-", "DD-") : d.designator}</span>
+      <span class="g-no mono">${
+        PRINCESS ? "♡ " + d.designator.replace("GR-", "DD-")
+        : CHAMPION ? d.designator.replace("GR-", "No. ")
+        : d.designator
+      }</span>
     </div>
     <code class="g-link mono">card.html?id=${esc(g.id)}</code>
     <div class="g-actions">
@@ -118,7 +129,7 @@ function initStars() {
       st.a += st.s; const tw = 0.4 + Math.abs(Math.sin(st.a)) * 0.6;
       st.y += st.vy; if (st.y > h) { st.y = 0; st.x = Math.random() * w; }
       ctx.globalAlpha = tw;
-      ctx.fillStyle = PRINCESS ? "#ffd9f0" : "#cfe6ff";
+      ctx.fillStyle = PRINCESS ? "#ffd9f0" : CHAMPION ? "#ffe9a8" : "#cfe6ff";
       ctx.beginPath(); ctx.arc(st.x, st.y, st.r, 0, Math.PI * 2); ctx.fill();
     }
     ctx.globalAlpha = 1;

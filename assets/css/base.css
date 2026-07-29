@@ -50,6 +50,35 @@ html.theme-princess .scanlines { display: none; }
 html.theme-princess .grain { opacity: 0.05; mix-blend-mode: multiply; }
 html.theme-princess ::selection { background: var(--accent); color: #fff; }
 
+/* ===== THEME CHAMPION · SÂN ĐÊM & CÚP VÀNG (dark) ===== */
+html.theme-champion {
+  --bg:        #050d1c;   /* xanh đêm gần đen */
+  --bg-2:      #0a1a33;
+  --ink:       #eef4ff;
+  --ink-dim:   #8fa3c4;
+  --accent:    #edbb00;   /* vàng cúp */
+  --accent-2:  #a50044;   /* garnet */
+  --glow:      #ffdd66;
+  --planet:    #004d98;   /* xanh blaugrana */
+  --panel:     rgba(6, 18, 40, 0.6);
+  --panel-line: rgba(150, 190, 255, 0.16);
+  --radius:    12px;      /* góc vuông vức hơn — chất thẻ cầu thủ */
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+  --display: "Oswald", "Be Vietnam Pro", system-ui, sans-serif;
+  /* dải blaugrana dùng cho viền & vạch nhấn */
+  --stripe: linear-gradient(90deg, #004d98 0%, #004d98 48%, #a50044 52%, #a50044 100%);
+}
+html.theme-champion body {
+  color: var(--ink);
+  background:
+    radial-gradient(80% 50% at 50% -8%, #122f5e 0%, transparent 62%),
+    radial-gradient(60% 40% at 88% 104%, #4a0a24 0%, transparent 58%),
+    radial-gradient(52% 38% at 10% 96%, #002a56 0%, transparent 60%),
+    linear-gradient(180deg, #061024, #040a16);
+}
+html.theme-champion .scanlines { opacity: 0.22; }
+html.theme-champion .grain { opacity: 0.06; }
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 html, body { height: 100%; }

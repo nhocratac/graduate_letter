@@ -479,9 +479,142 @@ html.theme-princess .ticket:hover::after { animation: sheen 1.1s ease; }
 @keyframes sheen { 0% { left: -60%; opacity: 0; } 18% { opacity: 0.85; } 100% { left: 130%; opacity: 0; } }
 html.theme-princess .grain { opacity: 0.07; }
 
+/* ============================================================
+   THEME CHAMPION · SÂN ĐÊM & CÚP VÀNG
+   ============================================================ */
+html.theme-champion .d-ico { color: var(--accent); filter: drop-shadow(0 0 6px rgba(237,187,0,0.3)); }
+
+/* ---- TẤM THIỆP: thẻ đội hình, viền blaugrana mảnh, số 10 chìm ---- */
+html.theme-champion .ticket {
+  isolation: isolate;                     /* chắc chắn có stacking context cho số 10 */
+  background: linear-gradient(180deg, rgba(10,26,54,0.84), rgba(4,10,22,0.88));
+  border: 1px solid rgba(237,187,0,0.26);
+  box-shadow: 0 44px 92px -42px rgba(0,0,0,0.92), 0 0 0 1px rgba(255,255,255,0.04) inset;
+}
+html.theme-champion .ticket::before { background: var(--stripe); opacity: 0.85; }
+/* số áo 10 chìm ở góc — z-index âm để nằm dưới nội dung, trên nền thiệp */
+html.theme-champion .ticket::after {
+  content: "10";
+  position: absolute; right: -8px; bottom: -46px; z-index: -1;
+  font-family: var(--display); font-weight: 700; font-size: 13rem; line-height: 1;
+  letter-spacing: -0.04em; color: rgba(255,255,255,0.04);
+  pointer-events: none;
+}
+html.theme-champion .corner { border-color: var(--accent); opacity: 0.55; }
+html.theme-champion .ticket-head { border-bottom: 1px solid rgba(150,190,255,0.14); }
+
+/* nhãn "THIỆP MỜI" kiểu băng đội trưởng */
+html.theme-champion .tag {
+  font-family: var(--display); font-weight: 700;
+  letter-spacing: 0.28em; border-radius: 3px; padding: 5px 11px;
+  color: #08111f; background: var(--accent); box-shadow: 0 0 22px -6px var(--accent);
+}
+
+/* ---- avatar: khung hình khiên, không quay ---- */
+html.theme-champion .avatar-ring {
+  width: 88px; height: 98px; border-radius: 0; padding: 3px;
+  background: var(--stripe); animation: none;
+  clip-path: polygon(50% 0%, 100% 14%, 100% 60%, 50% 100%, 0 60%, 0 14%);
+  box-shadow: 0 0 30px -12px var(--accent);
+}
+html.theme-champion .avatar {
+  border-radius: 0; animation: none;
+  clip-path: polygon(50% 0%, 100% 14%, 100% 60%, 50% 100%, 0 60%, 0 14%);
+}
+html.theme-champion .ring-tick { display: none; }
+html.theme-champion .avatar-initials { color: #08111f; }
+
+/* ---- chữ: bảng tên trên áo đấu ---- */
+html.theme-champion .recipient-text h2 {
+  font-family: var(--display); font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.2;
+}
+html.theme-champion .kicker { letter-spacing: 0.2em; }
+html.theme-champion .event-title h1 {
+  font-family: var(--display); font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.01em;
+  font-size: clamp(2.2rem, 10vw, 3.4rem); line-height: 1.14;
+  background: linear-gradient(180deg, #fff8de 8%, var(--accent) 62%, #c08c00 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-shadow: none; filter: drop-shadow(0 8px 20px rgba(237,187,0,0.2));
+}
+html.theme-champion .event-title .host strong {
+  font-family: var(--display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
+}
+
+/* ---- lời nhắn: vạch blaugrana thay hoa văn ---- */
+html.theme-champion .message { color: #dbe6fb; }
+html.theme-champion .message::before {
+  content: ""; display: block; width: 48px; height: 3px; margin: 0 auto 16px;
+  background: var(--stripe); border-radius: 2px;
+}
+html.theme-champion .message .presence {
+  color: var(--accent); font-style: normal;
+  font-family: var(--display); font-weight: 400; letter-spacing: 0.03em; font-size: 0.92rem;
+}
+
+/* ---- chi tiết + bảng tỉ số đếm ngược ---- */
+html.theme-champion .detail { background: rgba(8,20,44,0.55); border-color: rgba(150,190,255,0.15); }
+html.theme-champion .cd {
+  background: rgba(2,8,20,0.82); border-color: rgba(150,190,255,0.18);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.02) inset;
+}
+html.theme-champion .cd b { color: var(--accent); text-shadow: 0 0 18px rgba(237,187,0,0.4); }
+html.theme-champion .cd-label { letter-spacing: 0.24em; }
+html.theme-champion .cd-done { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* ---- nút ---- */
+html.theme-champion .btn { border-radius: 6px; font-family: var(--display); letter-spacing: 0.1em; }
+html.theme-champion .btn.primary { background: var(--accent); color: #08111f; }
+html.theme-champion .btn.ghost { border-color: rgba(150,190,255,0.22); }
+
+/* ---- JOURNEY ---- */
+/* Oswald in hoa + dấu tiếng Việt xếp tầng (Ạ, Ễ, Ộ...) cần line-height thoáng,
+   nếu không dấu dưới bị cắt và dấu trên đè sang dòng kế. */
+html.theme-champion .b-name, html.theme-champion .b-statement, html.theme-champion .b-big {
+  font-family: var(--display); text-transform: uppercase; letter-spacing: 0.01em;
+  line-height: 1.22;
+}
+html.theme-champion .b-big { line-height: 1.1; }
+html.theme-champion .b-kicker { letter-spacing: 0.28em; }
+html.theme-champion .grad {
+  background: linear-gradient(115deg, #fff8de, var(--accent) 48%, #ffe9a3 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+/* khung ảnh: thẻ ảnh viền vàng, vạch blaugrana dưới chân */
+html.theme-champion .b-photo {
+  position: relative; margin: 0 auto 26px; width: min(340px, 78vw); padding: 8px 8px 14px;
+  background: rgba(8,20,44,0.7); border: 1px solid rgba(237,187,0,0.26);
+  border-radius: 6px; box-shadow: 0 36px 72px -34px rgba(0,0,0,0.92);
+}
+html.theme-champion .b-photo img {
+  width: 100%; height: auto; display: block; border-radius: 3px;
+}
+html.theme-champion .b-photo::after {
+  content: ""; position: absolute; left: 8px; right: 8px; bottom: 6px;
+  height: 4px; background: var(--stripe); border-radius: 2px;
+}
+
+/* ---- intro video: nền sân đêm để letterbox liền mạch ---- */
+html.theme-champion .intro-video {
+  background: radial-gradient(70% 50% at 50% 32%, #10305f 0%, transparent 62%), #040a16;
+}
+
+/* ---- nút nhạc: tối, viền vàng ---- */
+html.theme-champion .music-toggle {
+  background: rgba(6,16,36,0.78); border-color: rgba(237,187,0,0.4); color: var(--accent);
+  box-shadow: 0 8px 22px -12px rgba(0,0,0,0.9);
+}
+html.theme-champion .music-toggle.playing { animation: chantPulse 1.7s ease-in-out infinite; }
+@keyframes chantPulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(237,187,0,0.16), 0 8px 22px -12px rgba(0,0,0,0.9); }
+  50% { box-shadow: 0 0 0 10px rgba(237,187,0,0), 0 8px 22px -12px rgba(0,0,0,0.9); }
+}
+
 /* ---------- mobile ---------- */
 @media (max-width: 480px) {
   .details { grid-template-columns: 1fr; }
   .recipient { flex-direction: row; }
   .hint { display: none; }
+  html.theme-champion .ticket::after { font-size: 9rem; bottom: -32px; }
 }

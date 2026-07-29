@@ -110,6 +110,35 @@
 }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
+/* ============================================================
+   THEME CHAMPION · SÂN ĐÊM & CÚP VÀNG
+   ============================================================ */
+html.theme-champion .hub-head h1 {
+  font-family: var(--display); font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.01em;
+  line-height: 1.14;   /* chừa chỗ cho dấu tiếng Việt trên chữ in hoa */
+}
+html.theme-champion .hub-head h1 .grad {
+  background: linear-gradient(115deg, #fff8de, var(--accent) 48%, #ffe9a3);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-shadow: none;
+}
+html.theme-champion .guest {
+  border-radius: 10px; border-color: rgba(150,190,255,0.15);
+  background: linear-gradient(180deg, rgba(10,26,54,0.78), rgba(4,10,22,0.82));
+}
+html.theme-champion .guest::before { background: var(--stripe); box-shadow: none; }
+html.theme-champion .g-avatar {
+  border-radius: 0; color: #08111f;
+  clip-path: polygon(50% 0%, 100% 14%, 100% 60%, 50% 100%, 0 60%, 0 14%);
+  background: linear-gradient(160deg, var(--glow), var(--planet) 72%);
+}
+html.theme-champion .g-meta h3 {
+  font-family: var(--display); text-transform: uppercase; letter-spacing: 0.03em;
+}
+html.theme-champion .btn { border-radius: 6px; font-family: var(--display); letter-spacing: 0.08em; }
+html.theme-champion .btn.primary, html.theme-champion .toast { color: #08111f; }
+
 /* ---------- animation vào ---------- */
 .reveal { opacity: 0; transform: translateY(20px); }
 body.ready .reveal { animation: rise .6s cubic-bezier(.2,.7,.2,1) forwards; animation-delay: calc(var(--i, 0) * 0.06s + 0.1s); }

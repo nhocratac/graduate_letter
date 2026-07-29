@@ -6,11 +6,15 @@ import { GUESTS } from "./guests.js";
 import { derive, initials } from "./style-engine.js";
 import { createScene } from "./scene.js";
 import { createSparkles } from "./sparkles.js";
+import { createStadium } from "./stadium.js";
 import { buildJourney } from "./journey.js";
 import { createMusicBox } from "./music.js";
 
-const PRINCESS = EVENT.theme === "princess";
-if (PRINCESS) document.documentElement.classList.add("theme-princess");
+// theme hiện tại: "champion" (Giang) · "princess" (Đào Đào) · mặc định = cosmic
+const THEME = EVENT.theme || "cosmic";
+const PRINCESS = THEME === "princess";
+const CHAMPION = THEME === "champion";
+if (PRINCESS || CHAMPION) document.documentElement.classList.add(`theme-${THEME}`);
 
 const $ = (sel) => document.querySelector(sel);
 
@@ -31,9 +35,11 @@ if (!guest) {
 // ============================================================================
 function renderCard(g) {
   const d = derive(g.id, { palette: g.palette, zodiac: g.zodiac });
-  // theme công chúa: ép bảng màu hồng/vàng/lavender lấp lánh
+  // theme có bảng màu riêng thì ép, còn lại dùng bảng sinh theo id
   const pal = PRINCESS
     ? { name: "Pixie Dust", accent: "#e07da4", accent2: "#a48ee0", planet: "#c9a9f0", glow: "#9fe0d2" }
+    : CHAMPION
+    ? { name: "Blaugrana", accent: "#edbb00", accent2: "#a50044", planet: "#004d98", glow: "#ffdd66" }
     : d.palette;
 
   // --- áp bảng màu vào CSS variables ---
@@ -44,9 +50,16 @@ function renderCard(g) {
   root.setProperty("--planet", pal.planet);
 
   // --- text nội dung ---
-  $("#hudTag").textContent = PRINCESS ? "Thiệp Mời" : d.hudTag;
-  $("#designator").textContent = PRINCESS ? d.designator.replace("GR-", "No. ") : d.designator;
-  $("#paletteName").textContent = PRINCESS ? "PIXIE DUST" : pal.paletteName;
+  $("#hudTag").textContent = PRINCESS || CHAMPION ? "Thiệp Mời" : d.hudTag;
+  // HTML đã có sẵn nhãn "NO." nên chỉ đưa phần số vào, đừng thêm tiền tố nữa
+  $("#designator").textContent = PRINCESS || CHAMPION
+    ? d.designator.replace("GR-", "")
+    : d.designator;
+  $("#paletteName").textContent = PRINCESS
+    ? "PIXIE DUST"
+    : CHAMPION
+    ? "BLAUGRANA"
+    : pal.paletteName;
   $("#greeting").textContent = d.greeting;
   $("#guestName").textContent = (g.title ? g.title + " " : "") + g.name;
   $("#occasion").textContent = EVENT.occasion;
@@ -55,6 +68,9 @@ function renderCard(g) {
   $("#classOf").textContent = EVENT.classOf;
   $("#message").textContent = g.message || EVENT.defaultMessage;
   $("#presence").textContent = EVENT.presenceLine;
+
+  // nhãn trước tên bảng màu: "SECTOR" chỉ đúng với theme vũ trụ
+  $("#paletteLabel").textContent = PRINCESS ? "MÀU" : CHAMPION ? "ĐỘI" : "SECTOR";
 
   // chi tiết
   $("#dateVal").textContent = EVENT.dateLabel;
@@ -66,9 +82,14 @@ function renderCard(g) {
   const phoneEl = $("#phoneVal");
   phoneEl.textContent = EVENT.phone;
   phoneEl.href = "tel:" + EVENT.phone.replace(/\s+/g, "");
+  // email: chưa có thì ẩn cả ô, tránh hiện dòng trống trên thiệp
   const emailEl = $("#emailVal");
-  emailEl.textContent = EVENT.email;
-  emailEl.href = "mailto:" + EVENT.email;
+  if (EVENT.email) {
+    emailEl.textContent = EVENT.email;
+    emailEl.href = "mailto:" + EVENT.email;
+  } else {
+    emailEl.closest(".detail").hidden = true;
+  }
 
   // tiêu đề tab
   document.title = `Thiệp mời · ${g.name} — ${EVENT.occasion} ${EVENT.host}`;
@@ -77,7 +98,9 @@ function renderCard(g) {
   buildAvatar(g, d);
 
   // --- liên kết bản đồ + lịch ---
-  $("#mapLink").href = EVENT.mapUrl;
+  // chưa có mapUrl -> ẩn nút, đừng dẫn khách tới đường dẫn rỗng
+  if (EVENT.mapUrl) $("#mapLink").href = EVENT.mapUrl;
+  else $("#mapLink").hidden = true;
   $("#calLink").href = googleCalUrl();
 
   // --- countdown ---
@@ -92,6 +115,8 @@ function renderCard(g) {
   try {
     scene = PRINCESS
       ? createSparkles($("#bg"), { palette: pal, light: true })
+      : CHAMPION
+      ? createStadium($("#bg"), { palette: pal })
       : createScene($("#bg"), { palette: pal, derived: d, quality: lowEnd ? "low" : "high" });
   } catch (e) {
     console.warn("Nền động không khả dụng, dùng nền tĩnh.", e);
@@ -103,6 +128,10 @@ function renderCard(g) {
     const hint = document.querySelector(".hint");
     if (hint) hint.textContent = "di chuột để mơ mộng — chạm vào nền để rắc kim tuyến";
     $("#pulseBtn") && ($("#pulseBtn").textContent = "Rắc kim tuyến");
+  } else if (CHAMPION) {
+    const hint = document.querySelector(".hint");
+    if (hint) hint.textContent = "di chuột để cảm nhận đèn sân — chạm vào nền để bung confetti";
+    $("#pulseBtn") && ($("#pulseBtn").textContent = "Tiếng còi khai cuộc");
   }
 
   // click vào nền => hiệu ứng hành tinh
@@ -148,12 +177,12 @@ function renderCard(g) {
   // --- tilt nhẹ tấm thiệp theo chuột (desktop) ---
   setupTilt($("#ticket"));
 
-  // hộp nhạc công chúa (chỉ theme công chúa)
-  if (PRINCESS) {
+  // hộp nhạc (princess: hộp nhạc mộng mơ · champion: nhịp khán đài)
+  if (PRINCESS || CHAMPION) {
     const btn = $("#musicToggle");
     if (btn) {
       btn.hidden = false;
-      const box = createMusicBox();
+      const box = createMusicBox({ pattern: CHAMPION ? "chant" : "musicbox" });
       btn.addEventListener("click", () => {
         const on = box.toggle();
         btn.classList.toggle("playing", on);
@@ -161,16 +190,16 @@ function renderCard(g) {
     }
   }
 
-  // intro video cửa lâu đài (chỉ theme công chúa)
+  // intro video trước thiệp (princess: cửa lâu đài · champion: cú sút)
   initIntro();
 
   // gỡ màn chờ + chạy animation vào
   requestAnimationFrame(() => document.body.classList.add("ready"));
 }
 
-// ---- intro video (theme princess): phát 1 lần, bấm/đợi xong thì mờ dần ----
+// ---- intro video: phát 1 lần, bấm/đợi xong thì mờ dần --------------------
 function initIntro() {
-  if (!PRINCESS) return;
+  if (!PRINCESS && !CHAMPION) return;
   const overlay = $("#introVideo");
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!overlay || reduce) return;
@@ -184,6 +213,8 @@ function initIntro() {
     setTimeout(() => overlay.remove(), 850);
   };
   vid.addEventListener("ended", finish);
+  // thiếu file / không decode được -> bỏ intro luôn, không để khách nhìn màn đen
+  vid.addEventListener("error", finish, true);
   $("#introSkip")?.addEventListener("click", finish);
   // an toàn: tự đóng sau 9.5s phòng khi video kẹt
   const guard = setTimeout(finish, 9500);
