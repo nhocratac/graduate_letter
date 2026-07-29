@@ -93,18 +93,29 @@ Giữ nguyên khung đang chạy tốt, không refactor đầu cơ.
 
 Dựng bằng HyperFrames (render video từ HTML/CSS/JS) → `assets/video/intro-champion.mp4`.
 
-**Giới hạn đã thống nhất với user:** HyperFrames không tạo được footage thật của Messi. Intro là bản **cách
-điệu**: silhouette cầu thủ số 10. Nếu user muốn footage thật thì phải tự cung cấp clip.
+**Giới hạn:** HyperFrames render video từ HTML/CSS/JS nên không tạo được hình người thật. Session này cũng
+không có key sinh ảnh (`GEMINI_API_KEY`/`GOOGLE_API_KEY` đều trống) → không sinh được ảnh nào. Người thật
+trong intro **phải đến từ file ảnh có sẵn**.
 
-Spec: ~6.5s, 1080×1920 portrait (tránh crop trên mobile — xem fix ở commit `61fc72e`), muted, autoplay 1 lần.
+**Bản v1 (đã thay):** silhouette SVG số 10 tự lấy đà và sút. User phản hồi "không thấy được Messi" →
+chốt lại: nhân vật trong intro là **chính Giang**, không dùng ảnh Messi (ảnh báo chí có bản quyền, và
+mình không tự tải về).
+
+**Bản v2 (đang dùng):** ảnh lễ phục của Giang được tách nền bằng `hyperframes remove-background`
+(model `u2net_human_seg`, CoreML). Lưu ý: model chỉ giữ **người** — nó cắt luôn cúp và giấy chứng nhận
+trong ảnh, nên tay Giang trong cutout là tay trống. Vì photo tĩnh không thể "sút", choreography đổi thành
+*bóng bay vào lưới trước → Giang hiện lên ăn mừng*, thay vì bắt ảnh diễn động tác sút.
+
+Spec: **7.0s**, 1080×1920 portrait (tránh crop trên mobile — xem fix ở commit `61fc72e`), muted, autoplay 1 lần.
 
 | Thời điểm | Shot |
 |---|---|
-| 0–1.2s | Sân đêm tối; đèn pha bật lần lượt; kẻ vôi sáng lên |
-| 1.2–2.6s | Silhouette số 10 lấy đà và sút; bóng bay theo cung, có motion trail |
-| 2.6–3.4s | Bóng vào lưới; lưới rung (SVG mesh biến dạng); khung hình rung nhẹ; confetti vàng bung |
-| 3.4–5.5s | Chữ **GIANG LÊ** hiện kiểu bảng đội hình: số `10` lớn phía sau, tên trượt vào, dòng dưới `VĂN LANG · CLASS OF 2026` |
-| 5.5–6.5s | Fade sang blaugrana rồi mờ dần vào thiệp |
+| 0–1.1s | Sân đêm tối; đèn pha bật lần lượt; kẻ vôi + khung thành sáng lên |
+| 1.15–1.95s | Bóng bay từ góc dưới trái theo cung vào lưới, có motion trail |
+| 1.93–2.5s | Lưới rung (elastic), khung thành rung nhẹ, quầng sáng + confetti bung |
+| 2.2–3.4s | **Giang (ảnh thật, tách nền)** dâng lên từ đáy khung, có quầng sáng vàng–xanh sau lưng |
+| 3.5–5.9s | Bảng tên: số `10` chìm, **GIANG LÊ** trượt vào, vạch blaugrana, `VĂN LANG · CLASS OF 2026` |
+| 6.1–7.0s | Mờ dần sang xanh đêm rồi vào thiệp |
 
 Cơ chế phát: giữ `initIntro()` (`card.js:172`), đổi điều kiện `PRINCESS` → theme champion. Giữ nút "Bỏ qua",
 guard timeout 9.5s, tự bỏ intro khi browser chặn autoplay hoặc `prefers-reduced-motion: reduce`.
@@ -115,8 +126,8 @@ guard timeout 9.5s, tự bỏ intro khi browser chặn autoplay hoặc `prefers-
 - Mục tiêu kích thước file **< 2.5 MB** — GitHub Pages không có CDN video. Nếu render ra nặng hơn thì hạ
   bitrate hoặc rút ngắn thời lượng; không đẩy file nặng lên Pages.
 
-**Kết quả thực tế:** render 1080×1920 · 30fps · 195 frame · 6.5s. Bản `-q high` ra 3.1 MB, nén lại bằng
-ffmpeg (`libx264 crf 27 preset slow +faststart`) còn **555 KB**. Số 10 chìm trong bảng tên phải vẽ bằng
+**Kết quả thực tế:** render 1080×1920 · 30fps · 7.0s. Bản `-q high` ra 4.8 MB, nén lại bằng
+ffmpeg (`libx264 crf 27 preset slow +faststart`) còn **732 KB**. Số 10 chìm trong bảng tên phải vẽ bằng
 hình SVG thay vì chữ, vì `hyperframes check` tính contrast cho mọi text và hoạ tiết mờ 0.055 alpha không
 thể đạt WCAG 3:1. Frame ở giây 5.0 được crop thành `assets/img/og-cover.png` (1200×630) làm ảnh link
 preview — ảnh cũ là cover của Đào Đào, gửi đi sẽ hiện sai người.
