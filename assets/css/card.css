@@ -336,6 +336,21 @@ html.has-journey { scroll-snap-type: y proximity; }
 }
 .intro-skip:hover { background: rgba(0,0,0,0.55); border-color: #fff; }
 
+/* nút phát tay — chỉ hiện khi trình duyệt chặn autoplay */
+.intro-play {
+  position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 52;
+  font-family: var(--display); font-size: 1.05rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer;
+  color: #08111f; background: var(--accent); border: 0;
+  padding: 16px 30px; border-radius: 999px;
+  box-shadow: 0 14px 40px -12px rgba(0,0,0,0.8), 0 0 0 6px rgba(237,187,0,0.16);
+  animation: playPulse 2s ease-in-out infinite;
+}
+@keyframes playPulse {
+  0%, 100% { box-shadow: 0 14px 40px -12px rgba(0,0,0,0.8), 0 0 0 6px rgba(237,187,0,0.16); }
+  50% { box-shadow: 0 14px 40px -12px rgba(0,0,0,0.8), 0 0 0 16px rgba(237,187,0,0); }
+}
+
 /* ---------- nút bật/tắt nhạc ---------- */
 .music-toggle {
   position: fixed; bottom: 22px; left: 22px; z-index: 51;
@@ -577,6 +592,8 @@ html.theme-champion .b-name, html.theme-champion .b-statement, html.theme-champi
 }
 html.theme-champion .b-big { line-height: 1.1; }
 html.theme-champion .b-kicker { letter-spacing: 0.28em; }
+/* câu mời đầy đủ khá dài — 26ch mặc định tạo cột chữ quá hẹp */
+html.theme-champion .b-lead { max-width: 34ch; }
 html.theme-champion .grad {
   background: linear-gradient(115deg, #fff8de, var(--accent) 48%, #ffe9a3 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;

@@ -36,9 +36,11 @@
   <!-- intro video (cú sút vào lưới) — JS hiện/ẩn, bấm để bỏ qua.
        Thiếu file -> JS tự bỏ qua intro, không kẹt màn đen. -->
   <div id="introVideo" class="intro-video" hidden>
-    <video id="introVid" muted playsinline preload="auto" poster="">
+    <video id="introVid" muted playsinline autoplay preload="auto" poster="assets/img/intro-poster.jpg">
       <source src="assets/video/intro-champion.mp4" type="video/mp4" />
     </video>
+    <!-- iOS chặn autoplay (vd Chế độ nguồn điện thấp) -> hiện nút này thay vì im lặng bỏ intro -->
+    <button class="intro-play" id="introPlay" type="button" hidden>▶ Xem intro</button>
     <button class="intro-skip" id="introSkip" type="button">Bỏ qua ↦</button>
   </div>
 

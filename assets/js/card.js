@@ -205,23 +205,44 @@ function initIntro() {
   if (!overlay || reduce) return;
 
   const vid = $("#introVid");
+  const playBtn = $("#introPlay");
   overlay.hidden = false;
-  let done = false;
+
+  let done = false, guard = 0;
   const finish = () => {
     if (done) return; done = true;
+    clearTimeout(guard);
     overlay.classList.add("fade");
     setTimeout(() => overlay.remove(), 850);
   };
+  const armGuard = (ms) => { clearTimeout(guard); guard = setTimeout(finish, ms); };
+
   vid.addEventListener("ended", finish);
   // thiếu file / không decode được -> bỏ intro luôn, không để khách nhìn màn đen
   vid.addEventListener("error", finish, true);
   $("#introSkip")?.addEventListener("click", finish);
-  // an toàn: tự đóng sau 9.5s phòng khi video kẹt
-  const guard = setTimeout(finish, 9500);
-  vid.addEventListener("ended", () => clearTimeout(guard));
-  // autoplay (muted) — nếu trình duyệt chặn thì bỏ qua intro
-  const p = vid.play?.();
-  if (p && p.catch) p.catch(() => finish());
+
+  // iOS cần muted + playsinline đặt cả ở property, không chỉ ở attribute
+  vid.muted = true;
+  vid.playsInline = true;
+
+  function start() {
+    // thẻ autoplay có thể đã chạy trước khi overlay hiện -> tua về đầu
+    if (vid.currentTime > 0.4) { try { vid.currentTime = 0; } catch (e) {} }
+    armGuard(11000);                       // video 7s + đệm mạng chậm
+    const p = vid.play?.();
+    if (p && p.catch) {
+      p.catch(() => {
+        // Bị chặn (thường là Chế độ nguồn điện thấp trên iOS) -> để khách tự bấm,
+        // đừng nuốt mất intro như trước. Vẫn tự đóng sau 15s nếu khách bỏ qua.
+        if (done) return;
+        playBtn && (playBtn.hidden = false);
+        armGuard(15000);
+      });
+    }
+  }
+  playBtn?.addEventListener("click", () => { playBtn.hidden = true; start(); });
+  start();
 }
 
 // ---- avatar: dùng ảnh hoặc tự vẽ từ chữ cái đầu ---------------------------
