@@ -13,24 +13,24 @@ export const EVENT = {
 
   // Thời gian (countdown + thêm vào lịch). Múi giờ VN (+07:00)
   dateISO:     "2026-08-08",
-  timeStart:   "13:00",
+  timeStart:   "15:00",
   timeEnd:     "17:00",
   dateLabel:   "8 tháng 8, 2026",
   dayLabel:    "Thứ Bảy",
-  timeLabel:   "13:00 — 17:00",
+  timeLabel:   "15:00 — 17:00",
 
   // Địa điểm
-  venue:       "Đại học Văn Lang",
+  venue:       "ĐH Văn Lang — Cơ sở Đặng Thùy Trâm",
   venueShort:  "VLU — ĐH Văn Lang",
-  // TODO(Giang): địa chỉ + cơ sở chính xác nơi làm lễ. Để "Đang cập nhật" thay vì
-  // đoán, vì khách sẽ dựa vào dòng này mà tìm đường.
-  address:     "Đang cập nhật",
-  // TODO(Giang): link Google Maps của đúng cơ sở. Để rỗng -> nút "Xem bản đồ"
-  // tự ẩn, tránh dẫn khách đi sai chỗ.
-  mapUrl:      "",
+  // TODO(Giang): xác nhận lại số nhà "69/68" giúp mình — phần tên đường và quận thì chắc,
+  // số nhà là mình điền theo trí nhớ nên cần bạn kiểm tra trước khi gửi khách.
+  address:     "69/68 Đặng Thùy Trâm, P. 13, Q. Bình Thạnh, TP.HCM",
+  // Dùng link tìm kiếm theo tên thay vì toạ độ tự bịa — Maps tự tìm đúng cơ sở.
+  mapUrl:      "https://www.google.com/maps/search/?api=1&query=" +
+               encodeURIComponent("Đại học Văn Lang cơ sở Đặng Thùy Trâm"),
 
   // Liên hệ
-  phone:       "0123456678",        // TODO(Giang): thay bằng số thật trước khi gửi khách
+  phone:       "0327154165",
   email:       "",                  // TODO(Giang): email liên hệ. Rỗng -> dòng email tự ẩn
 
   // Thông điệp mặc định (khi 1 khách không có message riêng)

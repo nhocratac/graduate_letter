@@ -31,15 +31,15 @@ Xác nhận từ user + đọc được từ 3 ảnh user gửi (giấy chứng 
 | Trường | Đại học Văn Lang | user |
 | `dateISO` | `2026-08-08` | user |
 | `dayLabel` | `Thứ Bảy` | tính từ `date -j` — 08/08/2026 là Saturday |
-| `timeStart`/`timeEnd` | `13:00` / `17:00` | user |
-| `phone` | `0123456678` | user — **placeholder**, gắn `// TODO: số thật` |
-| `email` | **chưa có** — placeholder `giang@example.com` + TODO | — |
-| `address` | **chưa có** — placeholder + TODO | — |
+| `timeStart`/`timeEnd` | `15:00` / `17:00` | user (đổi từ 13:00 sau khi Giang chốt lại) |
+| `phone` | `0327154165` | user |
+| `email` | **chưa có** → ô email tự ẩn trên thiệp | — |
+| `address` | Cơ sở Đặng Thùy Trâm, `69/68 Đặng Thùy Trâm, P. 13, Q. Bình Thạnh` | user chốt cơ sở; số nhà mình điền theo trí nhớ, **chưa xác nhận** |
 | `classOf` | `CLASS OF 2026` | suy ra từ ngày lễ |
 
-**Assumption chưa kiểm chứng:** lễ có thể diễn ra ở Cơ sở 3 Văn Lang (Đặng Thùy Trâm, Bình Thạnh) — đây là
-phỏng đoán, KHÔNG ghi vào code như sự thật. `venue`/`address`/`lat`/`lng`/`mapUrl` để placeholder gắn cờ TODO
-cho tới khi user xác nhận. Không đặt toạ độ bịa vào `mapUrl` vì nút bản đồ sẽ dẫn khách đi sai chỗ.
+**Địa điểm:** user đã chốt **cơ sở Đặng Thùy Trâm**. Phần tên đường/quận là chắc; **số nhà `69/68` mình điền
+theo trí nhớ nên vẫn cần Giang xác nhận**. `mapUrl` dùng link tìm kiếm Google Maps theo tên cơ sở thay vì toạ
+độ tự bịa — nút bản đồ sẽ ra đúng trường kể cả khi số nhà sai.
 
 ### Chân dung để chọn hướng thẩm mỹ
 
@@ -134,9 +134,11 @@ preview — ảnh cũ là cover của Đào Đào, gửi đi sẽ hiện sai ng�
 
 ## 6. Nội dung & khách mời
 
-- `guests.js` giữ 2 thẻ: `demo` (thẻ mẫu để Giang xem trước — journey viết theo chất bóng đá + PR) và
-  `preview` (fallback khi link thiếu `id`). Đúng cách bản Đào Đào khởi đầu ở `bb8a58b`.
-- **Không bịa khách của Giang.** Giang tự thêm khách theo hướng dẫn README.
+- **6 thiệp thật** (Giang gửi nội dung): `lang-xi-trum` · `tay-thanh-futsal` · `dong` · `bao-quynh` ·
+  `anh-khoa` · `dan-em-2k7`, cộng thẻ `preview` làm fallback. Thẻ mẫu `demo` (tên giả "Minh Khang") đã xoá.
+- **Lời nhắn giữ nguyên văn Giang viết.** Các beat journey chỉ tách ý từ chính câu đó, không thêm chi tiết
+  mới — không đặt lời vào miệng Giang.
+- Khách chưa có ảnh → avatar tự sinh từ chữ cái đầu. Beat `photo` dùng ảnh của Giang.
 - Lời nhắn mặc định (`defaultMessage`) và `presenceLine` viết lại theo giọng champion, bỏ từ ngữ "lấp lánh /
   kim tuyến" của bản princess.
 
@@ -181,9 +183,11 @@ Repo là static site, không có test runner. Verify bằng cách chạy thật:
 
 ## 11. Việc còn chờ user
 
-| Cần | Xử lý tạm |
+| Cần | Trạng thái |
 |---|---|
-| Email liên hệ | placeholder + `// TODO` |
-| Địa chỉ / cơ sở Văn Lang làm lễ | placeholder + `// TODO`; `mapUrl` để trống chứ không bịa toạ độ |
-| Số điện thoại thật | giữ `0123456678` + `// TODO` |
-| Cho phép cài `hyperframes` | chặn bước render intro; các bước khác chạy trước được |
+| Số điện thoại | ✅ `0327154165` |
+| Giờ lễ | ✅ 15:00 — 17:00 (đổi từ 13:00) |
+| Địa điểm | ✅ Cơ sở Đặng Thùy Trâm. Số nhà `69/68` là mình điền theo trí nhớ → **cần Giang xác nhận**. `mapUrl` dùng link tìm kiếm theo tên, không bịa toạ độ |
+| Danh sách khách | ✅ 6 thiệp thật + thẻ `preview` dự phòng |
+| Email liên hệ | ❌ chưa có → ô email tự ẩn |
+| Cho phép cài `hyperframes` | ✅ đã cài, intro đã render |
