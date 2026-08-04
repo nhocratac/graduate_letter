@@ -190,6 +190,6 @@ Repo là static site, không có test runner. Verify bằng cách chạy thật:
 | Số điện thoại | ✅ `0327154165` |
 | Giờ lễ | ✅ 15:00 — 17:00 (đổi từ 13:00) |
 | Địa điểm | ✅ Cơ sở Đặng Thùy Trâm, số nhà `69/68` Giang đã xác nhận. `mapUrl` dùng link tìm kiếm theo tên |
-| Danh sách khách | 🔸 11 thiệp thật + `preview`. 4 thiệp (Thùy Trang, Thu Thảo, Minh Thi, Ngọc Mai) dựng theo script từng slide Giang gửi. **Còn tồn:** ảnh Thùy Trang (file gửi về là icon PNG, không phải ảnh) |
+| Danh sách khách | ✅ 11 thiệp thật + `preview`. 4 thiệp (Thùy Trang, Thu Thảo, Minh Thi, Ngọc Mai) dựng theo script từng slide Giang gửi. Ảnh khách đã đủ cho 5 người: Đông, Bảo Quỳnh, Tây Thạnh Futsal, Anh Khoa, Thùy Trang |
 | Email liên hệ | ✅ Giang không dùng email → ô email tự ẩn (đã chốt, không phải việc tồn) |
 | Cho phép cài `hyperframes` | ✅ đã cài, intro đã render |

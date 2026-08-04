@@ -102,9 +102,7 @@ export const GUESTS = [
   {
     id: "thuy-trang",
     name: "Thùy Trang",
-    // TODO(Giang): ảnh Thùy Trang chưa gửi được (file nhận về là icon PNG, không phải ảnh).
-    // Repo có sẵn assets/img/thuy-trang.jpeg nhưng đó là khách của bản Thắng — chưa chắc
-    // cùng người nên KHÔNG dùng. Gửi lại ảnh thì thêm photo + beat ảnh vào đây.
+    photo: "assets/img/thuy-trang.jpg",
     message:
       "Chào Trang, người bạn mà tớ hay gọi với tên thân thuộc là Trung (khàng). Tớ là Dung " +
       "(không khàng), hay có thể gọi là anh Giang. Sắp tới ngày tốt nghiệp của tụi mình rồi, tớ " +
@@ -116,7 +114,7 @@ export const GUESTS = [
       { type: "milestone", big: "Chào Trung (khàng)", text: "Tớ là Dung (không khàng), hoặc là anh Giang." },
       { type: "milestone", big: "Sắp tốt nghiệp rồi, tớ háo hức quá", text: "Nhưng cũng buồn không kém vì sắp hết được học chung." },
       { type: "milestone", big: "Thời gian trôi nhanh thật" },
-      { type: "photo", src: "assets/img/giang-gown.jpg", alt: "Giang trong lễ phục tốt nghiệp", big: "Thế nên ngày 8/8 này", text: "Thân mời Thùy Trang dự lễ tốt nghiệp." },
+      { type: "photo", src: "assets/img/thuy-trang.jpg", alt: "Thùy Trang", big: "Thế nên ngày 8/8 này", text: "Thân mời Thùy Trang dự lễ tốt nghiệp." },
       { type: "statement", lines: ["Đây có thể là lần cuối Trang được thấy anh Giang trong bộ dạng trẻ trâu"] },
       { type: "statement", lines: ["Và lần đầu tiên chứng kiến anh Giang TRƯỞNG THÀNH"] },
     ],
