@@ -13,11 +13,11 @@ export const EVENT = {
 
   // Thời gian (countdown + thêm vào lịch). Múi giờ VN (+07:00)
   dateISO:     "2026-08-08",
-  timeStart:   "15:00",
-  timeEnd:     "17:00",
+  timeStart:   "16:00",
+  timeEnd:     "18:00",
   dateLabel:   "8 tháng 8, 2026",
   dayLabel:    "Thứ Bảy",
-  timeLabel:   "15:00 — 17:00",
+  timeLabel:   "16:00 — 18:00",
 
   // Địa điểm
   venue:       "ĐH Văn Lang — Cơ sở Đặng Thùy Trâm",
