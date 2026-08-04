@@ -55,11 +55,12 @@ function renderCard(g) {
   $("#designator").textContent = PRINCESS || CHAMPION
     ? d.designator.replace("GR-", "")
     : d.designator;
-  $("#paletteName").textContent = PRINCESS
-    ? "PIXIE DUST"
-    : CHAMPION
-    ? "BLAUGRANA"
-    : pal.paletteName;
+  // theme champion không hiện dòng tên bảng màu -> ẩn cả dòng
+  if (CHAMPION) {
+    $("#paletteName").parentElement.hidden = true;
+  } else {
+    $("#paletteName").textContent = PRINCESS ? "PIXIE DUST" : pal.paletteName;
+  }
   $("#greeting").textContent = d.greeting;
   $("#guestName").textContent = (g.title ? g.title + " " : "") + g.name;
   $("#occasion").textContent = EVENT.occasion;
@@ -70,7 +71,7 @@ function renderCard(g) {
   $("#presence").textContent = EVENT.presenceLine;
 
   // nhãn trước tên bảng màu: "SECTOR" chỉ đúng với theme vũ trụ
-  $("#paletteLabel").textContent = PRINCESS ? "MÀU" : CHAMPION ? "ĐỘI" : "SECTOR";
+  if (!CHAMPION) $("#paletteLabel").textContent = PRINCESS ? "MÀU" : "SECTOR";
 
   // chi tiết
   $("#dateVal").textContent = EVENT.dateLabel;
