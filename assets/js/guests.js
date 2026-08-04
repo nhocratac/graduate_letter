@@ -166,7 +166,7 @@ export const GUESTS = [
     journey: [
       { type: "intro", kicker: "Một lời mời dành riêng cho" },
       { type: "memory", kicker: "Tui phải confirm", text: "Không phải do tui quên ông đâu, mà là do tui sơ suất nhỏ tí thui. Hehe." },
-      { type: "milestone", big: "U40 → U30", text: "Ông gánh vác tui qua bao thăng trầm điểm số, tui còn nhớ rõ." },
+      { type: "milestone", big: "Từ hạng U40 → Hạng U30", text: "Ông gánh vác tui qua bao thăng trầm điểm số, tui còn nhớ rõ." },
       { type: "photo", src: "assets/img/giang-gown.jpg", alt: "Giang trong lễ phục tốt nghiệp", kicker: "Nay có dịp", text: "Mời ông đến dự lễ tốt nghiệp, mong ông đến và chia vui cùng tui trong ngày tui trưởng thành nhé người bạn cùng bàn." },
     ],
   },

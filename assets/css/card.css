@@ -590,7 +590,9 @@ html.theme-champion .b-name, html.theme-champion .b-statement, html.theme-champi
   font-family: var(--display); text-transform: uppercase; letter-spacing: 0.01em;
   line-height: 1.22;
 }
-html.theme-champion .b-big { line-height: 1.1; }
+/* .b-big gốc (17vw) chỉ đẹp với chuỗi cực ngắn ("6"); mốc dạng cụm từ
+   ("Từ hạng U40 → Hạng U30") ở cỡ đó sẽ tràn 3 dòng và chiếm hết màn hình. */
+html.theme-champion .b-big { line-height: 1.14; font-size: clamp(2.1rem, 8.2vw, 4.4rem); }
 html.theme-champion .b-kicker { letter-spacing: 0.28em; }
 /* câu mời đầy đủ khá dài — 26ch mặc định tạo cột chữ quá hẹp */
 html.theme-champion .b-lead { max-width: 34ch; }
