@@ -591,18 +591,21 @@ html.theme-champion .btn.primary { background: var(--accent); color: #08111f; }
 html.theme-champion .btn.ghost { border-color: rgba(150,190,255,0.22); }
 
 /* ---- JOURNEY ---- */
-/* Oswald in hoa + dấu tiếng Việt xếp tầng (Ạ, Ễ, Ộ...) cần line-height thoáng,
-   nếu không dấu dưới bị cắt và dấu trên đè sang dòng kế. */
+/* Oswald in hoa + dấu tiếng Việt xếp tầng (Ế, Ẩ, Ể, Ộ...) cần line-height thoáng.
+   Quan trọng: các chữ này tô màu bằng background-clip:text, nên phần dấu nhô ra
+   ngoài hộp chữ sẽ KHÔNG được tô -> nhìn như bị cắt. Nới line-height + padding-top
+   để nét dấu nằm trọn trong hộp. */
 html.theme-champion .b-name, html.theme-champion .b-statement, html.theme-champion .b-big {
   font-family: var(--display); text-transform: uppercase; letter-spacing: 0.01em;
-  line-height: 1.22;
+  line-height: 1.32; padding-top: 0.1em;
 }
 /* .b-big gốc (17vw) chỉ đẹp với chuỗi cực ngắn ("6"); mốc dạng cụm từ
    ("Từ hạng U40 → Hạng U30") ở cỡ đó sẽ tràn 3 dòng và chiếm hết màn hình. */
-html.theme-champion .b-big { line-height: 1.14; font-size: clamp(2.1rem, 8.2vw, 4.4rem); }
+html.theme-champion .b-big { font-size: clamp(2.1rem, 8.2vw, 4.4rem); }
 html.theme-champion .b-kicker { letter-spacing: 0.28em; }
 html.theme-champion .b-photo-lead {
   font-family: var(--display); text-transform: uppercase; letter-spacing: 0.02em;
+  line-height: 1.32; padding-top: 0.1em;   /* cùng lý do: dấu phải nằm trong hộp để được tô gradient */
 }
 /* câu mời đầy đủ khá dài — 26ch mặc định tạo cột chữ quá hẹp */
 html.theme-champion .b-lead { max-width: 34ch; }
