@@ -187,7 +187,7 @@ Repo là static site, không có test runner. Verify bằng cách chạy thật:
 |---|---|
 | Số điện thoại | ✅ `0327154165` |
 | Giờ lễ | ✅ 15:00 — 17:00 (đổi từ 13:00) |
-| Địa điểm | ✅ Cơ sở Đặng Thùy Trâm. Số nhà `69/68` là mình điền theo trí nhớ → **cần Giang xác nhận**. `mapUrl` dùng link tìm kiếm theo tên, không bịa toạ độ |
-| Danh sách khách | ✅ 6 thiệp thật + thẻ `preview` dự phòng |
-| Email liên hệ | ❌ chưa có → ô email tự ẩn |
+| Địa điểm | ✅ Cơ sở Đặng Thùy Trâm, số nhà `69/68` Giang đã xác nhận. `mapUrl` dùng link tìm kiếm theo tên |
+| Danh sách khách | 🔸 10 thiệp thật + `preview`. **Còn tồn:** Ngọc Mai (lời nhắn Giang gửi bị cắt giữa câu) và ảnh Thùy Trang (file gửi về là icon PNG, không phải ảnh) |
+| Email liên hệ | ✅ Giang không dùng email → ô email tự ẩn (đã chốt, không phải việc tồn) |
 | Cho phép cài `hyperframes` | ✅ đã cài, intro đã render |

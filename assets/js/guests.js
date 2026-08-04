@@ -100,6 +100,77 @@ export const GUESTS = [
     ],
   },
   {
+    id: "thuy-trang",
+    name: "Thùy Trang",
+    // TODO(Giang): ảnh Thùy Trang chưa gửi được (file nhận về là icon PNG, không phải ảnh).
+    // Repo có sẵn assets/img/thuy-trang.jpeg nhưng đó là khách của bản Thắng — chưa chắc
+    // cùng người nên KHÔNG dùng. Gửi lại ảnh thì thêm photo + beat ảnh vào đây.
+    message:
+      "Chào Trang, người bạn mà tớ hay gọi với tên thân thuộc là Trung (khàng). Tớ là Dung " +
+      "(không khàng), hay có thể gọi là anh Giang. Sắp tới ngày tốt nghiệp của tụi mình rồi, tớ " +
+      "háo hức quá, nhưng cũng buồn không kém vì sắp hết được học chung rồi. Thế nên ngày 8/8 " +
+      "này, thân mời Trang dự lễ tốt nghiệp nhé, vì đây có thể là lần cuối Trang được thấy anh " +
+      "Giang trong bộ dạng trẻ trâu vì sau ngày hôm đó chắc chắn anh Giang sẽ TRƯỞNG THÀNH.",
+    journey: [
+      { type: "intro", kicker: "Một lời mời dành riêng cho" },
+      { type: "statement", kicker: "Tên thân thuộc", lines: ["Trung (khàng).", "Và Dung (không khàng)."] },
+      { type: "memory", kicker: "Tớ háo hức quá", text: "Nhưng cũng buồn không kém vì sắp hết được học chung rồi." },
+      { type: "photo", src: "assets/img/giang-gown.jpg", alt: "Giang trong lễ phục tốt nghiệp", kicker: "Thế nên ngày 8/8 này", text: "Thân mời Trang dự lễ tốt nghiệp nhé, vì đây có thể là lần cuối Trang được thấy anh Giang trong bộ dạng trẻ trâu vì sau ngày hôm đó chắc chắn anh Giang sẽ TRƯỞNG THÀNH." },
+    ],
+  },
+  {
+    id: "thu-thao",
+    name: "Thu Thảo",
+    message:
+      "Dear Thảo, lại là anh Long đây. Đến giờ anh vẫn không tin dù các em chung ngành anh vậy " +
+      "mà mãi tới cuối năm 3 mới biết mặt mũi nhau. Hồi đó anh Long hay gánh còng lưng tụi em, " +
+      "thế mà giờ đây anh sắp phải bước lên \"sân khấu cuộc đời\", mang trọng trách gánh giang " +
+      "sơn trên vai rồi. Thân mời bạn Thu Thảo góp mặt trong buổi lễ tốt nghiệp để cùng diện " +
+      "kiến \"anh Long\" khoác lên mình tấm \"long bào\" rực rỡ. Nhân dịp này cũng xin chúc mừng " +
+      "Thu Thảo chính thức tốt nghiệp, chúc em gánh vác cuộc đời nhẹ hơn cái thời gánh bài cùng " +
+      "anh Long nhé.",
+    journey: [
+      { type: "intro", kicker: "Một lời mời dành riêng cho" },
+      { type: "memory", kicker: "Chung ngành mà", text: "Mãi tới cuối năm 3 mới biết mặt mũi nhau — đến giờ anh vẫn không tin." },
+      { type: "statement", kicker: "Hồi đó", lines: ["Anh Long hay gánh còng lưng tụi em."] },
+      { type: "photo", src: "assets/img/giang-gown.jpg", alt: "Giang trong lễ phục tốt nghiệp", kicker: "Thế mà giờ đây", text: "Thân mời bạn Thu Thảo góp mặt trong buổi lễ tốt nghiệp để cùng diện kiến \"anh Long\" khoác lên mình tấm \"long bào\" rực rỡ." },
+      { type: "memory", kicker: "Và chúc mừng em", text: "Chúc Thu Thảo gánh vác cuộc đời nhẹ hơn cái thời gánh bài cùng anh Long nhé." },
+    ],
+  },
+  {
+    id: "minh-thi",
+    name: "Minh Thi",
+    message:
+      "Dear Thi, chắc là chưa quên anh Long đâu nhỉ. Mấy nay thấy em post hình rần rần là biết " +
+      "chuẩn bị tốt nghiệp rồi. Không biết em lẩn tránh kiểu gì mà tới cuối năm 3 mới thấy mặt " +
+      "mũi. Hồi đó hễ có bài khó là: \"Anh Long! Anh Long!\" giờ đây sắp hết có cơ hội gánh các " +
+      "em rồi. Thân mời bạn Minh Thi góp mặt trong buổi lễ tốt nghiệp để cùng diện kiến \"anh " +
+      "Long\" khoác lên mình tấm \"long bào\" rực rỡ. Từ nay gặp bài khó thì đừng gọi \"Anh Long! " +
+      "Anh Long!\" nữa nhé, vì anh Long bận gánh giang sơn rồi, không gánh bài tập được nữa đâu.",
+    journey: [
+      { type: "intro", kicker: "Một lời mời dành riêng cho" },
+      { type: "memory", kicker: "Mấy nay thấy em post hình rần rần", text: "Là biết chuẩn bị tốt nghiệp rồi." },
+      { type: "statement", kicker: "Hồi đó hễ có bài khó là", lines: ["\"Anh Long! Anh Long!\""] },
+      { type: "photo", src: "assets/img/giang-gown.jpg", alt: "Giang trong lễ phục tốt nghiệp", kicker: "Giờ đây", text: "Thân mời bạn Minh Thi góp mặt trong buổi lễ tốt nghiệp để cùng diện kiến \"anh Long\" khoác lên mình tấm \"long bào\" rực rỡ." },
+      { type: "memory", kicker: "Từ nay", text: "Gặp bài khó thì đừng gọi \"Anh Long! Anh Long!\" nữa nhé, vì anh Long bận gánh giang sơn rồi, không gánh bài tập được nữa đâu." },
+    ],
+  },
+  {
+    id: "quan-thai",
+    name: "Quân Thái",
+    message:
+      "Hi Quân Thái, tui phải confirm không phải do tui quên ông đâu mà là do tui sơ suất nhỏ tí " +
+      "thui. Hehe hồi xưa từng ngồi cùng bàn, ông gánh vác tui qua bao thăng trầm điểm số, kéo " +
+      "tui từ hạng U40 lên tiệm cận U30, tui còn nhớ rõ. Nay có dịp mời ông đến dự lễ tốt nghiệp, " +
+      "mong ông đến và chia vui cùng tui trong ngày tui trưởng thành nhé người bạn cùng bàn.",
+    journey: [
+      { type: "intro", kicker: "Một lời mời dành riêng cho" },
+      { type: "memory", kicker: "Tui phải confirm", text: "Không phải do tui quên ông đâu, mà là do tui sơ suất nhỏ tí thui. Hehe." },
+      { type: "milestone", big: "U40 → U30", text: "Ông gánh vác tui qua bao thăng trầm điểm số, tui còn nhớ rõ." },
+      { type: "photo", src: "assets/img/giang-gown.jpg", alt: "Giang trong lễ phục tốt nghiệp", kicker: "Nay có dịp", text: "Mời ông đến dự lễ tốt nghiệp, mong ông đến và chia vui cùng tui trong ngày tui trưởng thành nhé người bạn cùng bàn." },
+    ],
+  },
+  {
     // thiệp dự phòng (khi link thiếu id hoặc gõ sai -> hiện thiệp này)
     id: "preview",
     name: "Khách quý",
