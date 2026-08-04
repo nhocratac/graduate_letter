@@ -263,6 +263,13 @@ html.has-journey { scroll-snap-type: y proximity; }
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 
+/* ý chính của slide có ảnh — nhỏ hơn .b-big vì còn phải nhường chỗ cho ảnh */
+.b-photo-lead {
+  font-family: var(--display); font-weight: 800; line-height: 1.24;
+  font-size: clamp(1.45rem, 5.2vw, 2.3rem);
+  max-width: 24ch; margin: 0 auto 14px;
+}
+
 .scrollhint {
   position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%);
   font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.2em;
@@ -594,6 +601,9 @@ html.theme-champion .b-name, html.theme-champion .b-statement, html.theme-champi
    ("Từ hạng U40 → Hạng U30") ở cỡ đó sẽ tràn 3 dòng và chiếm hết màn hình. */
 html.theme-champion .b-big { line-height: 1.14; font-size: clamp(2.1rem, 8.2vw, 4.4rem); }
 html.theme-champion .b-kicker { letter-spacing: 0.28em; }
+html.theme-champion .b-photo-lead {
+  font-family: var(--display); text-transform: uppercase; letter-spacing: 0.02em;
+}
 /* câu mời đầy đủ khá dài — 26ch mặc định tạo cột chữ quá hẹp */
 html.theme-champion .b-lead { max-width: 34ch; }
 html.theme-champion .grad {

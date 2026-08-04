@@ -85,8 +85,10 @@ Giữ nguyên khung đang chạy tốt, không refactor đầu cơ.
 - **Motif:** số **10**; kẻ vôi sân cỏ (trắng mờ); khung avatar hình khiên thay vương miện.
 - **Không dùng** logo/crest FC Barcelona hay hình ảnh Messi thật — hình ảnh có bản quyền. Chỉ màu blaugrana
   + số 10.
-- **Journey:** dùng lại nguyên các beat type đã có (`intro`/`statement`/`memory`/`photo`/`milestone`), không
-  thêm type mới. 3 ảnh user gửi lưu vào `assets/img/` và dùng làm beat `photo`: ảnh cúp = beat "vô địch",
+- **Journey:** dùng lại các beat type đã có (`intro`/`statement`/`memory`/`photo`/`milestone`), không thêm
+  type mới. Có mở thêm **một trường** `big` cho beat `photo` (`journey.js`) để slide vừa có ảnh vừa có "ý
+  chính in đậm" theo yêu cầu của Giang — render thành `.b-photo-lead`, cỡ nhỏ hơn `.b-big` vì còn phải
+  nhường chỗ cho ảnh. 3 ảnh user gửi lưu vào `assets/img/` và dùng làm beat `photo`: ảnh cúp = beat "vô địch",
   ảnh lễ phục = beat cuối trước khi vào thiệp.
 
 ## 5. Intro video
@@ -188,6 +190,6 @@ Repo là static site, không có test runner. Verify bằng cách chạy thật:
 | Số điện thoại | ✅ `0327154165` |
 | Giờ lễ | ✅ 15:00 — 17:00 (đổi từ 13:00) |
 | Địa điểm | ✅ Cơ sở Đặng Thùy Trâm, số nhà `69/68` Giang đã xác nhận. `mapUrl` dùng link tìm kiếm theo tên |
-| Danh sách khách | 🔸 10 thiệp thật + `preview`. **Còn tồn:** Ngọc Mai (lời nhắn Giang gửi bị cắt giữa câu) và ảnh Thùy Trang (file gửi về là icon PNG, không phải ảnh) |
+| Danh sách khách | 🔸 11 thiệp thật + `preview`. 4 thiệp (Thùy Trang, Thu Thảo, Minh Thi, Ngọc Mai) dựng theo script từng slide Giang gửi. **Còn tồn:** ảnh Thùy Trang (file gửi về là icon PNG, không phải ảnh) |
 | Email liên hệ | ✅ Giang không dùng email → ô email tự ẩn (đã chốt, không phải việc tồn) |
 | Cho phép cài `hyperframes` | ✅ đã cài, intro đã render |

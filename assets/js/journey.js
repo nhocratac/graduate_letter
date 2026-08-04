@@ -36,9 +36,11 @@ function renderBeat(b, guest) {
       );
     }
     case "photo":
+      // b.big = ý chính của slide, in đậm dưới ảnh; b.text = phần còn lại
       return (
         `<figure class="b-photo"><img src="${esc(b.src)}" alt="${esc(b.alt || "")}" loading="lazy"/></figure>` +
         (b.kicker ? `<div class="b-kicker">${esc(b.kicker)}</div>` : "") +
+        (b.big ? `<div class="b-photo-lead grad">${esc(b.big)}</div>` : "") +
         (b.text ? `<p class="b-lead">${esc(b.text)}</p>` : "")
       );
     case "memory":
