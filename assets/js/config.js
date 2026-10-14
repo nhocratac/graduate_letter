@@ -11,7 +11,7 @@ window.INVITE = {
     name: "Nguyễn Thục Vin",
     degree: "Cử nhân Tổ chức sự kiện",                  // để "" nếu không muốn hiện
     // Ảnh chân dung tỉ lệ 3:4 (vd 600x800). Bỏ ảnh vào assets/img/ rồi đổi tên ở đây.
-    photo: "assets/img/avatar.svg",          // TẠM: ảnh mock — thay bằng "assets/img/photo.jpg" khi có ảnh thật
+    photo: "assets/img/photo.jpg",           // vd: "assets/img/photo.jpg"
   },
 
   /* ---------- Thời gian (giờ Việt Nam, +07:00) ---------- */
