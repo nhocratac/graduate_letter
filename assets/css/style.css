@@ -1,16 +1,16 @@
 /* =====================================================================
    Thiệp mời Lễ Tốt Nghiệp — style
-   Layout: một cột dọc kiểu thiệp giấy (tối đa 440px), nền xanh ngọc
+   Layout: một cột dọc kiểu thiệp giấy (tối đa 440px), nền hồng phấn
    với hoa ly mờ; màn mở đầu là bầu trời sáng và cánh cửa cổ tích.
    ===================================================================== */
 :root {
   /* Màu */
-  --sky: #BFDDF0;          /* màu chủ đạo */
-  --sky-50: #F3F9FD;
-  --sky-100: #E3F0F9;
-  --sky-300: #9CC9E6;
-  --sky-500: #6E9FCB;
-  --sky-700: #4A7EAE;
+  --sky: #F6CAD6;          /* màu chủ đạo */
+  --sky-50: #FDF3F6;
+  --sky-100: #FAE4EB;
+  --sky-300: #EDAFC2;
+  --sky-500: #D27F99;
+  --sky-700: #B85D7C;
   --navy: #1F3B57;         /* chữ chính */
   --navy-2: #2E5577;       /* chữ phụ, viền */
   --gold: #C9A65E;
@@ -68,7 +68,7 @@ button { font: inherit; color: inherit; }
   background:
     radial-gradient(70% 42% at 50% 36%, rgba(255, 255, 255, .9) 0%, rgba(255, 255, 255, 0) 72%),
     radial-gradient(90% 30% at 50% 100%, rgba(255, 255, 255, .85) 0%, rgba(255, 255, 255, 0) 70%),
-    linear-gradient(180deg, #86B9DF 0%, var(--sky) 36%, #D6EAF7 70%, var(--sky-50) 100%);
+    linear-gradient(180deg, #E8A3B8 0%, var(--sky) 36%, #F8DCE5 70%, var(--sky-50) 100%);
 }
 .intro__stars { position: absolute; inset: 0; pointer-events: none; }
 .star {
@@ -188,7 +188,7 @@ button { font: inherit; color: inherit; }
   inset: 0;
   z-index: 60;
   pointer-events: none;
-  background: radial-gradient(circle at 50% 70%, #FFFFFF, var(--sky-50) 60%, #EAF4FB);
+  background: radial-gradient(circle at 50% 70%, #FFFFFF, var(--sky-50) 60%, #FBE9EF);
   opacity: 0;
   transition: opacity .7s ease;
 }
@@ -204,7 +204,7 @@ button { font: inherit; color: inherit; }
   overflow: hidden;
   background:
     radial-gradient(80% 30% at 50% 6%, rgba(255, 255, 255, .55), rgba(255, 255, 255, 0) 70%),
-    linear-gradient(180deg, #D2E8F6 0%, var(--sky) 22%, #B2D5EE 55%, var(--sky) 100%);
+    linear-gradient(180deg, #F7D8E2 0%, var(--sky) 22%, #F2BCCB 55%, var(--sky) 100%);
 }
 
 .bg-flowers { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
@@ -706,7 +706,7 @@ button { font: inherit; color: inherit; }
 .lightbox__map img { display: block; width: 100%; height: auto; }
 .lightbox__ring { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .lightbox__ring ellipse {
-  fill: rgba(191, 221, 240, .22);
+  fill: rgba(246, 202, 214, .22);
   stroke: var(--navy);
   stroke-width: 7;
   stroke-dasharray: 22 14;
@@ -760,7 +760,7 @@ legend.field__label { margin-bottom: 8px; }
   transition: border-color .2s ease, box-shadow .2s ease;
 }
 .field__input::placeholder { color: #8A9FB2; }
-.field__input:focus { outline: none; border-color: var(--navy-2); box-shadow: 0 0 0 4px rgba(191, 221, 240, .9); }
+.field__input:focus { outline: none; border-color: var(--navy-2); box-shadow: 0 0 0 4px rgba(246, 202, 214, .9); }
 .field__input--area { min-height: 88px; resize: vertical; line-height: 1.5; }
 
 .choice { position: relative; display: block; cursor: pointer; }
@@ -792,7 +792,7 @@ legend.field__label { margin-bottom: 8px; }
   position: absolute;
   inset: 0 auto 0 0;
   width: 0;
-  background: rgba(110, 159, 203, .28);
+  background: rgba(210, 127, 153, .28);
   transition: width 1.1s var(--ease-out);
 }
 .choice input:checked + .choice__box .choice__fill { background: rgba(255, 255, 255, .14); }
