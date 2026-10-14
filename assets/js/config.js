@@ -9,30 +9,30 @@ window.INVITE = {
   /* ---------- Người tốt nghiệp ---------- */
   graduate: {
     name: "Nguyễn Thục Vin",
-    degree: "Cử nhân Tổ chức sự kiện",                  // để "" nếu không muốn hiện
+    degree: "Cử nhân Kinh doanh thể thao & Tổ chức sự kiện",           // để "" nếu không muốn hiện
     // Ảnh chân dung tỉ lệ 3:4 (vd 600x800). Bỏ ảnh vào assets/img/ rồi đổi tên ở đây.
     photo: "assets/img/photo.jpg",           // vd: "assets/img/photo.jpg"
   },
 
   /* ---------- Thời gian (giờ Việt Nam, +07:00) ---------- */
   event: {
-    start: "2026-12-19T09:00:00+07:00",      // TẠM: chưa có ngày chính thức — nhớ sửa!      // NĂM-THÁNG-NGÀY T GIỜ:PHÚT:GIÂY
-    end:   "2026-12-19T11:00:00+07:00",      // TẠM
+    start: "2026-10-17T16:00:00+07:00",      // NĂM-THÁNG-NGÀY T GIỜ:PHÚT:GIÂY
+    end:   "2026-10-17T17:30:00+07:00",
     timezone: "Asia/Ho_Chi_Minh",            // thứ/ngày/giờ trên thiệp luôn tính theo múi giờ này
   },
 
   /* ---------- Địa điểm ---------- */
   venue: {
     name: "Trường Đại học Tôn Đức Thắng",
-    hall: "Điểm hẹn: khu cỏ trước Tòa G",     // để "" nếu không cần
+    hall: "Sân Quốc Phòng toà M",     // để "" nếu không cần
     address: "19 Nguyễn Hữu Thọ, Quận 7, TP. Hồ Chí Minh",
     // Từ khóa để Google Maps tìm đúng chỗ: tên trường, địa chỉ, hoặc tọa độ "21.0285,105.8542".
     mapQuery: "Đại học Tôn Đức Thắng, 19 Nguyễn Hữu Thọ, Quận 7",
     showMap: true,                           // false = ẩn khung bản đồ, chỉ giữ nút "Chỉ đường"
     // Sơ đồ khuôn viên trường, có ghim điểm hẹn (vị trí ghim chỉnh trong index.html). Để "" = ẩn.
-    campusMap: "assets/img/campus-map.jpg",
+    campusMap: "assets/img/campus-map-tdtu.jpg",
     // Ảnh lớn hiện khi chạm vào sơ đồ, có khoanh vùng điểm hẹn (vị trí vòng khoanh chỉnh trong index.html).
-    campusMapFull: "assets/img/campus-map-full.jpg",
+    campusMapFull: "assets/img/campus-map-tdtu.jpg",
   },
 
   /* ---------- Nhạc nền ---------- */
@@ -53,7 +53,7 @@ window.INVITE = {
   rsvp: {
     enabled: true,
     // Dán URL Web App của Google Apps Script (xem README, mục 3). Để "" = chế độ demo, không lưu.
-    endpoint: "",                            // chưa có Google Sheet riêng → chế độ demo
+    endpoint: "https://script.google.com/macros/s/AKfycbztrD-qKOer8yjnkVmZLade2hOcAccPlhoGDU23kSNEkKFpuR2axqVX04Q653rx3lRNIQ/exec",
     askGuests: true,                         // hỏi số người đi cùng
     askMessage: true,                        // ô gửi lời chúc
     showStats: true,                         // hiện tỉ lệ % sau khi gửi (giống video mẫu)

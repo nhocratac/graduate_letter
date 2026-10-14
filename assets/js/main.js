@@ -258,7 +258,8 @@
       if (!img.getAttribute("src")) img.src = full;
       box.hidden = false;
       document.body.classList.add("is-locked");
-      $(".lightbox__scroll", box).scrollLeft = 0;
+      var scroller = $(".lightbox__scroll", box);
+      scroller.scrollLeft = $(".lightbox__tag", box).offsetLeft - scroller.clientWidth / 2;   // cuộn tới điểm hẹn
       $("#campusClose").focus();
     });
     $("#campusClose").addEventListener("click", close);
