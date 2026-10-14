@@ -66,7 +66,7 @@ window.INVITE = {
     tapHint: "Chạm vào cánh cửa để mở thiệp",
     inviteLine: "Thân mời bạn đến dự",
     ceremony: ["Graduation", "Ceremony"],
-    message: "Bao nhiêu năm đứng sau cánh gà lo cho sự kiện của người khác, lần này đến lượt Vin được bước ra sân khấu rồi 🎤✨\nKịch bản đã duyệt, sân khấu đã dựng, chỉ còn thiếu khách mời quan trọng nhất là bạn 🩷\nMình không cần hoa thật to hay quà thật nhiều, chỉ mong được thấy bạn ở đó, cười cùng mình và lưu lại một tấm hình thật đẹp. Vì có những khoảnh khắc chỉ đến một lần trong đời, và mình mong có bạn trong khoảnh khắc ấy 🫶🏻🎓\nEvent: Graduation. Status: Completed ✅",   // mục "Lời nhắn" ngay sau thiệp; \n = xuống dòng; để "" = ẩn
+    message: "Bao nhiêu năm đứng sau cánh gà lo cho sự kiện của người khác, lần này đến lượt Vin được bước ra sân khấu rồi 🎤✨\nKịch bản đã duyệt, sân khấu đã dựng, chỉ còn thiếu khách mời quan trọng nhất là bạn 🩷\nMình không cần hoa thật to hay quà thật nhiều, chỉ mong được thấy bạn ở đó, cười cùng mình và lưu lại một tấm hình thật đẹp. Vì có những khoảnh khắc chỉ đến một lần trong đời, và mình mong có bạn trong khoảnh khắc ấy 🫶🏻🎓\nSự kiện: Lễ tốt nghiệp của Vin — chỉ chờ bạn đến là trọn vẹn 🎓",   // mục "Lời nhắn" ngay sau thiệp; \n = xuống dòng; để "" = ẩn
     closing: "Cảm ơn bạn đã đọc thiệp của Vin. Hẹn gặp bạn vào ngày tốt nghiệp nhé!",
   },
 };
