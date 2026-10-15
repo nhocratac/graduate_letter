@@ -867,6 +867,55 @@ legend.field__label { margin-bottom: 8px; }
   text-align: center;
 }
 .footer__script { font-family: var(--f-script); font-size: 54px; line-height: 1; color: var(--navy); }
+.notes__intro {
+  max-width: 360px;
+  margin-bottom: 14px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--navy-2);
+  text-wrap: pretty;
+}
+.notes {
+  max-width: 360px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: note;
+  display: grid;
+  gap: 12px;
+  text-align: left;
+}
+.notes__item {
+  counter-increment: note;
+  position: relative;
+  padding: 16px 18px 16px 56px;
+  border: 1px solid rgba(255, 255, 255, .95);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .6);
+  box-shadow: var(--shadow-soft);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--navy-2);
+  text-wrap: pretty;
+}
+.notes__item::before {
+  content: counter(note);
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+}
+.notes__item strong { display: block; color: var(--navy); }
 .note {
   max-width: 360px;
   padding: 22px 20px;

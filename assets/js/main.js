@@ -297,6 +297,28 @@
     $("#contactZalo").href = "https://zalo.me/" + phone;
   }
 
+  /* ------------------------------------------------------------------
+     Lưu ý: danh sách đánh số từ text.notes
+     ------------------------------------------------------------------ */
+  function setupNotes() {
+    var notes = Array.isArray(T.notes) ? T.notes : [];
+    if (!notes.length) { $("#luu-y").hidden = true; return; }
+    var list = $("#notesList");
+    notes.forEach(function (n) {
+      var li = document.createElement("li");
+      li.className = "notes__item";
+      if (n.title) {
+        var b = document.createElement("strong");
+        b.textContent = n.title;
+        li.appendChild(b);
+      }
+      var p = document.createElement("span");
+      p.textContent = n.body || "";
+      li.appendChild(p);
+      list.appendChild(li);
+    });
+  }
+
   function setupCopy() {
     $("#copyAddr").addEventListener("click", function () {
       var text = [V.name, V.hall, V.address].filter(Boolean).join(", ");
@@ -718,6 +740,7 @@
     setupMap();
     setupCopy();
     setupContact();
+    setupNotes();
     setupCampusMap();
     setupMusic();
     setupRsvp();
