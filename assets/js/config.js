@@ -66,7 +66,7 @@ window.INVITE = {
     tapHint: "Chạm vào cánh cửa để mở thiệp",
     inviteLine: "Thân mời bạn đến dự",
     ceremony: ["Graduation", "Ceremony"],
-    message: "Bao nhiêu năm đứng sau cánh gà lo cho sự kiện của người khác, lần này đến lượt Vin được bước ra sân khấu rồi 🎤✨\nKịch bản đã duyệt, sân khấu đã dựng, chỉ còn thiếu khách mời quan trọng nhất là bạn 🩷\nMình không cần hoa thật to hay quà thật nhiều, chỉ mong được thấy bạn ở đó, cười cùng mình và lưu lại một tấm hình thật đẹp. Vì có những khoảnh khắc chỉ đến một lần trong đời, và mình mong có bạn trong khoảnh khắc ấy 🫶🏻🎓\nSự kiện: Lễ tốt nghiệp của Vin — chỉ chờ bạn đến là trọn vẹn 🎓",   // mục "Lời nhắn" ngay sau thiệp; \n = xuống dòng; để "" = ẩn
+    message: "Thân yêu ơi có mặt trong khoảng 16h - 17h30 nha vì 17h30 mình phải trả lễ phục rùiii.\nKhông nên tới trễ sau 17h nhé nhưng mình vẫn sẽ ráng đợi mọi người tới 18h.\nXin chân thành cảm ơn và hẹn gặp mọi người vào Thứ Bảy để cùng nhau lưu giữ thật nhiều khoảnh khắc!\n❤ LOVE YOU ❤",   // mục "Lời nhắn" ngay sau thiệp; \n = xuống dòng; để "" = ẩn
     closing: "Sự hiện diện của tất cả mọi người là vinh hạnh và là kỉ niệm đáng nhớ của TZ 🫶🏻🎓",
 
     // Mục "Lưu ý" (sau Địa điểm). Mỗi lưu ý gồm tiêu đề ngắn + nội dung. Để notes: [] = ẩn cả mục.
